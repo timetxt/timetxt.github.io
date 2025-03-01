@@ -1,0 +1,71 @@
+<!-- 渐变效果展示容器 -->
+<div class="gradient-container">
+  <!-- 线性渐变卡片 -->
+  <div class="gradient-card linear">
+    <h3>线性渐变</h3>
+  </div>
+  <!-- 径向渐变卡片 -->
+  <div class="gradient-card radial">
+    <h3>径向渐变</h3>
+  </div>
+  <!-- 角向渐变卡片 -->
+  <div class="gradient-card conic">
+    <h3>角向渐变</h3>
+  </div>
+</div>
+
+<style>
+/* 页面基本样式 */
+body {
+  margin: 0; /* 移除默认边距 */
+  height: 100vh; /* 占满视口高度 */
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  background-color: #f0f0f0; /* 浅灰色背景 */
+  font-family: 'Arial', sans-serif; /* 无衬线字体 */
+}
+
+/* 渐变卡片容器 */
+.gradient-container {
+  display: flex;
+  flex-wrap: wrap; /* 允许元素换行 */
+  gap: 20px; /* 卡片间距 */
+  justify-content: center; /* 居中排列 */
+}
+
+/* 基础渐变卡片样式 */
+.gradient-card {
+  width: 200px; /* 卡片宽度 */
+  height: 200px; /* 卡片高度 */
+  border-radius: 15px; /* 圆角半径 */
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  color: white; /* 文字颜色 */
+  font-weight: bold; /* 文字加粗 */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* 阴影效果 */
+}
+
+/* 线性渐变卡片 - 从左上到右下的渐变 */
+.linear {
+  background: linear-gradient(45deg, #12c2e9, #c471ed, #f64f59); /* 45度角，蓝色到紫色到红色的渐变 */
+}
+
+/* 径向渐变卡片 - 从中心向外的圆形渐变 */
+.radial {
+  background: radial-gradient(circle, #fdbb2d, #22c1c3); /* 从中心黄色渐变到外围青色 */
+}
+
+/* 角向渐变卡片 - 围绕中心点旋转的渐变 */
+.conic {
+  background: conic-gradient(from 0deg, #8a2387, #e94057, #f27121, #8a2387); /* 从0度开始，紫色到红色到橙色，再回到紫色 */
+}
+
+/* 标题样式 */
+h3 {
+  background: rgba(0,0,0,0.2); /* 半透明黑色背景 */
+  padding: 10px 20px; /* 内部间距：上下10px，左右20px */
+  border-radius: 8px; /* 圆角半径 */
+}
+</style> 

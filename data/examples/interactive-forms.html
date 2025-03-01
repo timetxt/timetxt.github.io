@@ -1,0 +1,427 @@
+<div class="interactive-form-container">
+  <h2>交互式表单设计</h2>
+  <p>通过动画和视觉反馈提升表单体验</p>
+  
+  <form class="interactive-form">
+    <div class="form-header">
+      <h3>个人信息</h3>
+      <p>请填写您的个人基本信息</p>
+    </div>
+    
+    <div class="form-group">
+      <div class="input-wrapper">
+        <input type="text" id="fullname" class="interactive-input" required>
+        <label for="fullname">姓名</label>
+        <span class="input-line"></span>
+        <div class="input-icon">👤</div>
+        <span class="error-message">请输入您的姓名</span>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="input-wrapper">
+        <input type="email" id="email" class="interactive-input" required>
+        <label for="email">电子邮件</label>
+        <span class="input-line"></span>
+        <div class="input-icon">✉️</div>
+        <span class="error-message">请输入有效的电子邮件地址</span>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="input-wrapper">
+        <input type="tel" id="phone" class="interactive-input" required pattern="[0-9]{11}">
+        <label for="phone">手机号码</label>
+        <span class="input-line"></span>
+        <div class="input-icon">📱</div>
+        <span class="error-message">请输入有效的11位手机号码</span>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="checkbox-container">
+        <input type="checkbox" id="terms">
+        <span class="checkmark"></span>
+        <span>我同意<a href="#">服务条款</a>和<a href="#">隐私政策</a></span>
+      </label>
+    </div>
+    
+    <div class="form-actions">
+      <button type="button" class="secondary-btn">取消</button>
+      <button type="submit" class="primary-btn">
+        <span class="btn-text">提交</span>
+        <span class="btn-loader"></span>
+      </button>
+    </div>
+    
+    <div class="success-message">
+      <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+        <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+        <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+      </svg>
+      <p>信息已成功提交！</p>
+    </div>
+  </form>
+</div>
+
+<style>
+.interactive-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+}
+
+.interactive-form-container h2 {
+  margin-top: 0;
+  color: #333;
+  text-align: center;
+}
+
+.interactive-form-container > p {
+  color: #666;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.interactive-form {
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-header {
+  margin-bottom: 30px;
+}
+
+.form-header h3 {
+  margin: 0 0 5px 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.form-header p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.input-wrapper {
+  position: relative;
+  margin-top: 20px;
+}
+
+.interactive-input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #333;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding-left: 30px;
+}
+
+.input-wrapper label {
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  color: #999;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.interactive-input:focus ~ label,
+.interactive-input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #4285f4;
+  font-size: 12px;
+}
+
+.input-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.input-line::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #4285f4;
+  transition: all 0.3s ease;
+}
+
+.interactive-input:focus ~ .input-line::after,
+.interactive-input:valid ~ .input-line::after {
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  font-size: 16px;
+  color: #999;
+  transition: all 0.3s ease;
+}
+
+.interactive-input:focus ~ .input-icon,
+.interactive-input:valid ~ .input-icon {
+  color: #4285f4;
+}
+
+.error-message {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  font-size: 12px;
+  color: #e53935;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.interactive-input:invalid:not(:placeholder-shown) ~ .error-message {
+  opacity: 1;
+}
+
+/* 复选框样式 */
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none;
+  color: #666;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #4285f4;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-container a {
+  color: #4285f4;
+  text-decoration: none;
+}
+
+.checkbox-container a:hover {
+  text-decoration: underline;
+}
+
+/* 按钮样式 */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.primary-btn, .secondary-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.primary-btn {
+  background-color: #4285f4;
+  color: white;
+}
+
+.secondary-btn {
+  background-color: #f1f3f4;
+  color: #5f6368;
+}
+
+.primary-btn:hover {
+  background-color: #3367d6;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.secondary-btn:hover {
+  background-color: #e8eaed;
+}
+
+.btn-text {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.primary-btn.loading .btn-text {
+  opacity: 0;
+}
+
+.primary-btn.loading .btn-loader {
+  opacity: 1;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* 成功消息样式 */
+.success-message {
+  display: none;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.success-message p {
+  color: #34a853;
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+/* 成功勾选动画 */
+.checkmark {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto;
+}
+
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #34a853;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke-width: 3;
+  stroke: #34a853;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% { stroke-dashoffset: 0; }
+}
+
+/* 响应式调整 */
+@media (max-width: 480px) {
+  .interactive-form {
+    padding: 20px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .primary-btn, .secondary-btn {
+    width: 100%;
+  }
+}
+
+/* JS操作 */
+.interactive-form.submitted .form-group,
+.interactive-form.submitted .form-actions,
+.interactive-form.submitted .form-header {
+  display: none;
+}
+
+.interactive-form.submitted .success-message {
+  display: block;
+}
+</style>
+
+<script>
+// 模拟表单提交
+document.querySelector('.primary-btn').addEventListener('click', function(e) {
+  e.preventDefault();
+  const form = document.querySelector('.interactive-form');
+  
+  // 添加加载状态
+  this.classList.add('loading');
+  
+  // 模拟延迟提交
+  setTimeout(() => {
+    this.classList.remove('loading');
+    form.classList.add('submitted');
+  }, 1500);
+});
+</script> 

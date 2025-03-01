@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页设计效果展示</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="light-theme">
+    <header>
+        <div class="logo">
+            <h1 class="site-title" data-en="Web Design Showcase" data-zh="网页设计效果展示">网页设计效果展示</h1>
+        </div>
+        <div class="controls">
+            <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
+            <button id="language-toggle" aria-label="Toggle language">
+                <span class="lang-text">EN</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="intro">
+        <p class="intro-text" data-en="Explore various web design patterns and effects. Select an item from the sidebar to view the code and preview the effect." data-zh="探索各种网页设计模式和效果。从侧边栏选择一个项目，查看代码并预览效果。">探索各种网页设计模式和效果。从侧边栏选择一个项目，查看代码并预览效果。</p>
+        <p class="prompt-link">
+            <a href="prompt.html" data-en="View Project Documentation" data-zh="查看项目文档说明">查看项目文档说明</a>
+        </p>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2 class="sidebar-title" data-en="Design Patterns" data-zh="设计模式">设计模式</h2>
+            <div id="sidebar-menu" class="sidebar-menu">
+                <!-- 动态加载侧边栏项目 -->
+            </div>
+        </aside>
+
+        <main class="content">
+            <h2 id="example-title" class="example-title">选择一个设计模式</h2>
+            
+            <div class="preview-section">
+                <h3 class="section-title" data-en="Preview" data-zh="预览效果">预览效果</h3>
+                <div id="preview-container" class="preview-container">
+                    <!-- 预览将在这里显示 -->
+                </div>
+            </div>
+            
+            <div class="code-section">
+                <h3 class="section-title" data-en="Implementation Code" data-zh="实现代码">实现代码</h3>
+                <div id="code-container" class="code-container">
+                    <!-- 代码将在这里显示 -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p class="footer-text" data-en="Modern Web Design Showcase - A demonstration of web design techniques" data-zh="现代网页设计展示 - 网页设计技术演示">现代网页设计展示 - 网页设计技术演示</p>
+    </footer>
+
+    <!-- 脚本 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/themeToggle.js"></script>
+    <script src="js/languageToggle.js"></script>
+    <script src="js/codeCopy.js"></script>
+    <script src="js/codeRenderer.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html> 

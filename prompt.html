@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页设计术语展示 - 项目说明</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --accent-color: #0066cc;
+            --code-bg: #f1f1f1;
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --border-color: #e1e4e8;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1a1a1a;
+                --text-color: #f0f0f0;
+                --accent-color: #4d9fff;
+                --code-bg: #2d2d2d;
+                --card-bg: rgba(40, 40, 40, 0.8);
+                --border-color: #444;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+        }
+
+        code {
+            font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+            background-color: var(--code-bg);
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .section-title {
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+            margin-top: 32px;
+        }
+
+        ul {
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>网页设计术语展示项目</h1>
+        <p>这是一个现代静态网页设计项目，旨在向用户展示网页设计术语的实际效果。此文档详细说明了项目的架构、设计理念和实现方法，以便于未来重新复现或扩展此项目。</p>
+    </div>
+
+    <h2 class="section-title">项目概述</h2>
+    <div class="card">
+        <p>本项目是一个交互式网页，允许用户选择不同的网页设计术语（如玻璃拟态背景、新拟态设计等），网站会显示相应的完整实现代码，并在代码框架下方实时预览效果。</p>
+        
+        <h3>核心功能：</h3>
+        <ul>
+            <li>展示各种网页设计术语的代码实现和效果预览</li>
+            <li>支持从AI大模型获取代码（当前使用模拟数据）</li>
+            <li>支持流式响应，实时显示代码</li>
+            <li>渲染代码，实时预览效果</li>
+            <li>支持代码复制功能</li>
+            <li>支持深色/浅色主题切换</li>
+            <li>支持中/英文语言切换</li>
+            <li>响应式设计，适应不同设备</li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">设计理念</h2>
+    <div class="card">
+        <ul>
+            <li><strong>简洁现代风格：</strong>遵循苹果设计理念，注重简洁、优雅的用户界面</li>
+            <li><strong>响应式设计：</strong>适应桌面、平板和移动设备的不同屏幕尺寸</li>
+            <li><strong>柔和配色：</strong>采用舒适、不刺眼的色彩方案</li>
+            <li><strong>现代UI元素：</strong>运用圆角、阴影、渐变、半透明毛玻璃等效果，提升界面质感</li>
+            <li><strong>简洁排版：</strong>避免复杂排版，保持页面整洁</li>
+            <li><strong>用户友好：</strong>提供主题切换、语言切换等用户个性化选项</li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">项目结构</h2>
+    <div class="card">
+        <pre>
+网页设计术语展示/
+├── index.html            # 主页面
+├── css/
+│   └── style.css         # 基本样式
+├── js/
+│   ├── scripts.js        # JavaScript主入口
+│   ├── data.js           # 数据处理模块
+│   ├── themeToggle.js    # 主题切换模块
+│   ├── languageSwitch.js # 语言切换模块
+│   ├── codeRenderer.js   # 代码渲染模块
+│   ├── codeCopy.js       # 代码复制功能
+│   └── aiSimulator.js    # AI响应模拟模块
+├── data/
+│   ├── design-terms.json # 设计术语数据
+│   └── examples/         # 示例代码
+│       ├── animation.html
+│       ├── dark-mode.html
+│       ├── neumorphism.html
+│       └── ...
+└── prompt.html           # 本项目说明文档
+        </pre>
+    </div>
+
+    <h2 class="section-title">技术实现细节</h2>
+    <div class="card">
+        <h3>1. HTML结构</h3>
+        <p>主页面包含以下关键部分：</p>
+        <ul>
+            <li>导航栏：包含标题、主题切换和语言切换</li>
+            <li>侧边栏：显示设计术语列表</li>
+            <li>主内容区：
+                <ul>
+                    <li>术语介绍</li>
+                    <li>代码显示区（支持代码高亮和复制）</li>
+                    <li>效果预览区</li>
+                </ul>
+            </li>
+            <li>页脚：版权信息和项目链接</li>
+        </ul>
+
+        <h3>2. CSS设计</h3>
+        <ul>
+            <li>使用CSS变量实现主题切换</li>
+            <li>采用Flexbox和Grid布局实现响应式设计</li>
+            <li>实现毛玻璃效果、新拟态、阴影等现代UI效果</li>
+            <li>使用媒体查询适配不同设备尺寸</li>
+        </ul>
+
+        <h3>3. JavaScript模块</h3>
+        <ul>
+            <li><strong>scripts.js</strong>：主入口，负责初始化和协调各模块</li>
+            <li><strong>data.js</strong>：加载和处理design-terms.json数据</li>
+            <li><strong>themeToggle.js</strong>：实现深色/浅色主题切换</li>
+            <li><strong>languageSwitch.js</strong>：实现中/英文切换</li>
+            <li><strong>codeRenderer.js</strong>：处理代码高亮和效果渲染</li>
+            <li><strong>codeCopy.js</strong>：实现代码复制功能</li>
+            <li><strong>aiSimulator.js</strong>：模拟与AI大模型的交互和流式响应</li>
+        </ul>
+
+        <h3>4. 数据结构</h3>
+        <p>design-terms.json包含设计术语的结构化数据：</p>
+        <pre>
+[
+  {
+    "id": "neumorphism",
+    "name": {
+      "zh": "新拟态设计",
+      "en": "Neumorphism"
+    },
+    "description": {
+      "zh": "新拟态是一种设计风格，结合了拟物和扁平化设计...",
+      "en": "Neumorphism is a design style that combines skeuomorphism and flat design..."
+    },
+    "examplePath": "data/examples/neumorphism.html"
+  },
+  // 更多术语...
+]
+        </pre>
+    </div>
+
+    <h2 class="section-title">如何复现此项目</h2>
+    <div class="card">
+        <ol>
+            <li>创建项目文件夹结构，按照上述项目结构设置文件和目录</li>
+            <li>创建index.html作为主页面，实现基本HTML结构</li>
+            <li>创建style.css实现基本样式和响应式设计</li>
+            <li>实现各JavaScript模块，确保功能模块化和代码解耦</li>
+            <li>创建design-terms.json数据文件，包含设计术语的结构化数据</li>
+            <li>在examples目录下创建各术语的示例HTML文件</li>
+            <li>测试各功能模块，确保代码高亮、效果预览、主题切换等功能正常工作</li>
+            <li>优化性能，确保在不同设备上流畅运行</li>
+        </ol>
+
+        <h3>性能优化考虑：</h3>
+        <ul>
+            <li>延迟加载非关键资源</li>
+            <li>优化图片和资源大小</li>
+            <li>避免不必要的DOM操作</li>
+            <li>使用防抖和节流优化事件处理</li>
+            <li>采用代码分割，按需加载模块</li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">未来扩展方向</h2>
+    <div class="card">
+        <ul>
+            <li>集成真实的AI大模型API，替代模拟数据</li>
+            <li>添加更多设计术语和示例</li>
+            <li>增加编辑功能，允许用户修改代码并实时查看效果</li>
+            <li>实现保存和分享功能</li>
+            <li>添加更多语言支持</li>
+            <li>增加动画效果和交互体验</li>
+        </ul>
+    </div>
+
+    <footer class="card" style="text-align: center; margin-top: 40px;">
+        <p>此项目旨在展示现代网页设计技术和效果，帮助开发者和设计师学习和应用各种设计术语。</p>
+        <p><a href="index.html">返回主页</a></p>
+    </footer>
+</body>
+</html> 

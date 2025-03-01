@@ -1,0 +1,277 @@
+<div class="layout-container">
+  <h2>布局切换器</h2>
+  <p>允许用户在不同的内容布局之间切换</p>
+  
+  <div class="layout-controls">
+    <button class="layout-btn active" data-layout="grid">
+      <svg viewBox="0 0 24 24" width="24" height="24"><path d="M4 4h6v6H4zm10 0h6v6h-6zM4 14h6v6H4zm10 0h6v6h-6z" fill="currentColor"/></svg>
+      网格视图
+    </button>
+    <button class="layout-btn" data-layout="list">
+      <svg viewBox="0 0 24 24" width="24" height="24"><path d="M4 5h16v2H4zm0 6h16v2H4zm0 6h16v2H4z" fill="currentColor"/></svg>
+      列表视图
+    </button>
+    <button class="layout-btn" data-layout="cards">
+      <svg viewBox="0 0 24 24" width="24" height="24"><path d="M4 4h16v7H4zm0 9h16v7H4z" fill="currentColor"/></svg>
+      卡片视图
+    </button>
+  </div>
+  
+  <div class="content-container grid-layout">
+    <div class="item">
+      <img src="https://via.placeholder.com/150" alt="示例图像">
+      <div class="item-content">
+        <h3>项目标题 1</h3>
+        <p>这是项目的简短描述，提供有关此项目的基本信息和细节。</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://via.placeholder.com/150" alt="示例图像">
+      <div class="item-content">
+        <h3>项目标题 2</h3>
+        <p>这是项目的简短描述，提供有关此项目的基本信息和细节。</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://via.placeholder.com/150" alt="示例图像">
+      <div class="item-content">
+        <h3>项目标题 3</h3>
+        <p>这是项目的简短描述，提供有关此项目的基本信息和细节。</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://via.placeholder.com/150" alt="示例图像">
+      <div class="item-content">
+        <h3>项目标题 4</h3>
+        <p>这是项目的简短描述，提供有关此项目的基本信息和细节。</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://via.placeholder.com/150" alt="示例图像">
+      <div class="item-content">
+        <h3>项目标题 5</h3>
+        <p>这是项目的简短描述，提供有关此项目的基本信息和细节。</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://via.placeholder.com/150" alt="示例图像">
+      <div class="item-content">
+        <h3>项目标题 6</h3>
+        <p>这是项目的简短描述，提供有关此项目的基本信息和细节。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.layout-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+  background-color: #f5f7fa;
+  border-radius: 10px;
+}
+
+.layout-container h2 {
+  margin-top: 0;
+  text-align: center;
+  color: #333;
+}
+
+.layout-container > p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.layout-controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 15px;
+}
+
+.layout-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #666;
+}
+
+.layout-btn.active {
+  background-color: #4285f4;
+  color: white;
+  border-color: #4285f4;
+}
+
+.layout-btn:hover:not(.active) {
+  background-color: #f0f0f0;
+}
+
+.layout-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* 内容容器 */
+.content-container {
+  transition: all 0.3s ease;
+}
+
+/* 网格布局 */
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.grid-layout .item {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.grid-layout .item:hover {
+  transform: translateY(-5px);
+}
+
+.grid-layout img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.grid-layout .item-content {
+  padding: 15px;
+}
+
+.grid-layout h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.grid-layout p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* 列表布局 */
+.list-layout .item {
+  display: flex;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.list-layout img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.list-layout .item-content {
+  padding: 15px;
+  flex: 1;
+}
+
+.list-layout h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.list-layout p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* 卡片布局 */
+.cards-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cards-layout .item {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cards-layout img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.cards-layout .item-content {
+  padding: 20px;
+}
+
+.cards-layout h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.cards-layout p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .grid-layout {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  .list-layout .item {
+    flex-direction: column;
+  }
+  
+  .list-layout img {
+    width: 100%;
+    height: 180px;
+  }
+}
+</style>
+
+<script>
+document.querySelectorAll('.layout-btn').forEach(button => {
+  button.addEventListener('click', function() {
+    // 移除所有按钮的active类
+    document.querySelectorAll('.layout-btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    
+    // 添加active类到当前按钮
+    this.classList.add('active');
+    
+    // 获取布局类型
+    const layout = this.getAttribute('data-layout');
+    const container = document.querySelector('.content-container');
+    
+    // 移除所有布局类
+    container.classList.remove('grid-layout', 'list-layout', 'cards-layout');
+    
+    // 添加新布局类
+    container.classList.add(`${layout}-layout`);
+  });
+});
+</script> 

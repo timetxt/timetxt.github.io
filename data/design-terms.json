@@ -1,0 +1,116 @@
+{
+  "terms": [
+    {
+      "id": "glass-morphism",
+      "nameEn": "Glass Morphism Background",
+      "nameZh": "玻璃拟态背景",
+      "isActive": true
+    },
+    {
+      "id": "neumorphism",
+      "nameEn": "Neumorphism Design",
+      "nameZh": "新拟物化",
+      "isActive": true
+    },
+    {
+      "id": "gradient",
+      "name": "渐变效果",
+      "isActive": true
+    },
+    {
+      "id": "animation",
+      "name": "CSS动画",
+      "isActive": true
+    },
+    {
+      "id": "grid-layout",
+      "name": "网格布局",
+      "isActive": true
+    },
+    {
+      "id": "muted-colors",
+      "name": "低饱和度配色",
+      "isActive": true
+    },
+    {
+      "id": "minimal-typography",
+      "name": "极简字体排版",
+      "isActive": true
+    },
+    {
+      "id": "dark-mode",
+      "name": "深色模式",
+      "isActive": true
+    },
+    {
+      "id": "micro-interactions",
+      "name": "微交互设计",
+      "isActive": true
+    },
+    {
+      "id": "3d-transforms",
+      "name": "3D变换效果",
+      "isActive": true
+    },
+    {
+      "id": "responsive-cards",
+      "name": "响应式卡片",
+      "isActive": true
+    },
+    {
+      "id": "floating-labels",
+      "name": "悬浮标签",
+      "isActive": true
+    },
+    {
+      "id": "advanced-shadows",
+      "name": "高级阴影效果",
+      "isActive": true
+    },
+    {
+      "id": "parallax-scrolling",
+      "name": "视差滚动效果",
+      "isActive": true
+    },
+    {
+      "id": "css-custom-properties",
+      "name": "CSS自定义属性",
+      "isActive": true
+    },
+    {
+      "id": "frosted-glass",
+      "name": "毛玻璃效果",
+      "isActive": true
+    },
+    {
+      "id": "layout-switcher",
+      "name": "布局切换器",
+      "isActive": true
+    },
+    {
+      "id": "image-filters",
+      "name": "图片滤镜效果",
+      "isActive": true
+    },
+    {
+      "id": "clip-path",
+      "name": "剪贴路径效果",
+      "isActive": true
+    },
+    {
+      "id": "interactive-forms",
+      "name": "交互式表单",
+      "isActive": true
+    },
+    {
+      "id": "blend-modes",
+      "name": "混合模式效果",
+      "isActive": true
+    },
+    {
+      "id": "accessibility-design",
+      "name": "可访问性设计",
+      "isActive": true
+    }
+  ]
+} 

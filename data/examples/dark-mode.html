@@ -1,0 +1,166 @@
+<div class="theme-container">
+  <div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox" />
+      <div class="slider round"></div>
+    </label>
+    <span class="theme-label">切换主题</span>
+  </div>
+  
+  <div class="theme-content">
+    <h2>深色模式与浅色模式</h2>
+    <p>这是一个演示深色模式与浅色模式切换的设计。点击上方开关来切换主题。</p>
+    <div class="button-container">
+      <button class="theme-button primary">主要按钮</button>
+      <button class="theme-button secondary">次要按钮</button>
+    </div>
+  </div>
+</div>
+
+<style>
+:root {
+  --light-bg: #f8f9fa;
+  --light-text: #333333;
+  --light-secondary: #666666;
+  --light-button-primary: #0066cc;
+  --light-button-secondary: #f0f0f0;
+  --light-border: #dddddd;
+  
+  --dark-bg: #222222;
+  --dark-text: #ffffff;
+  --dark-secondary: #aaaaaa;
+  --dark-button-primary: #4da6ff;
+  --dark-button-secondary: #444444;
+  --dark-border: #555555;
+  
+  --bg: var(--light-bg);
+  --text: var(--light-text);
+  --secondary: var(--light-secondary);
+  --button-primary: var(--light-button-primary);
+  --button-secondary: var(--light-button-secondary);
+  --border: var(--light-border);
+}
+
+.theme-container {
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 30px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-right: 10px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.theme-content {
+  border: 1px solid var(--border);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.theme-content h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.theme-content p {
+  color: var(--secondary);
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+
+.theme-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-button.primary {
+  background-color: var(--button-primary);
+  color: white;
+}
+
+.theme-button.secondary {
+  background-color: var(--button-secondary);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+#checkbox:checked ~ * {
+  --bg: var(--dark-bg);
+  --text: var(--dark-text);
+  --secondary: var(--dark-secondary);
+  --button-primary: var(--dark-button-primary);
+  --button-secondary: var(--dark-button-secondary);
+  --border: var(--dark-border);
+}
+</style>
+
+<script>
+document.getElementById('checkbox').addEventListener('change', function() {
+  document.querySelector('.theme-container').classList.toggle('dark-mode');
+});
+</script> 

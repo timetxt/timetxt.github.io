@@ -1,0 +1,55 @@
+<!-- 玻璃拟态卡片容器 -->
+<div class="glass-card">
+  <h2>玻璃拟态效果</h2>
+  <p>这是一个模拟玻璃效果的卡片设计，具有半透明、模糊背景的特点。</p>
+  <button class="glass-btn">了解更多</button>
+</div>
+
+<style>
+/* 玻璃卡片样式 */
+.glass-card {
+  background: rgba(255, 255, 255, 0.2); /* 背景色为白色带80%透明度 */
+  backdrop-filter: blur(10px); /* 背景模糊效果，模糊半径10像素 */
+  -webkit-backdrop-filter: blur(10px); /* Safari浏览器兼容性 */
+  border-radius: 20px; /* 圆角半径 */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* 边框为白色带70%透明度 */
+  padding: 30px; /* 内部间距 */
+  color: white; /* 文字颜色 */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* 阴影效果，模拟玻璃反光 */
+}
+
+/* 玻璃按钮样式 */
+.glass-btn {
+  background: rgba(255, 255, 255, 0.2); /* 背景色为白色带80%透明度 */
+  color: white; /* 文字颜色 */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* 边框为白色带70%透明度 */
+  backdrop-filter: blur(5px); /* 背景模糊效果 */
+  padding: 8px 16px; /* 内部间距：上下8px，左右16px */
+  border-radius: 10px; /* 圆角半径 */
+  cursor: pointer; /* 鼠标悬停时显示为手型 */
+  transition: all 0.3s ease; /* 所有属性变化过渡时间0.3秒，平滑过渡 */
+}
+
+/* 按钮悬停效果 */
+.glass-btn:hover {
+  background: rgba(255, 255, 255, 0.3); /* 悬停时增加不透明度 */
+}
+
+/* 页面背景样式，用于展示玻璃效果 */
+body {
+  background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); /* 彩色渐变背景 */
+  background-size: 400% 400%; /* 放大背景尺寸，用于动画效果 */
+  animation: gradient 15s ease infinite; /* 应用渐变动画，15秒一周期 */
+  height: 100vh; /* 占满整个视口高度 */
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+}
+
+/* 背景渐变动画定义 */
+@keyframes gradient {
+  0% { background-position: 0% 50%; } /* 开始位置 */
+  50% { background-position: 100% 50%; } /* 中间位置 */
+  100% { background-position: 0% 50%; } /* 结束位置回到起点 */
+}
+</style> 

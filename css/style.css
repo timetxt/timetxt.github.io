@@ -1,0 +1,390 @@
+/* 基本重置 */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 变量 */
+:root {
+    /* 亮色主题变量 */
+    --background-light: #f5f5f7;
+    --text-primary-light: #333333;
+    --text-secondary-light: #666666;
+    --border-light: #e1e1e1;
+    --card-background-light: #ffffff;
+    --sidebar-background-light: #ffffff;
+    --header-background-light: rgba(255, 255, 255, 0.8);
+    --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --code-background-light: #f8f8f8;
+    
+    /* 暗色主题变量 */
+    --background-dark: #1a1a1a;
+    --text-primary-dark: #ffffff;
+    --text-secondary-dark: #aaaaaa;
+    --border-dark: #333333;
+    --card-background-dark: #252525;
+    --sidebar-background-dark: #252525;
+    --header-background-dark: rgba(26, 26, 26, 0.8);
+    --shadow-dark: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --code-background-dark: #2d2d2d;
+    
+    /* 公共变量 */
+    --accent-color: #0071e3;
+    --header-height: 60px;
+    --sidebar-width: 250px;
+    --transition-speed: 0.3s;
+    --border-radius: 12px;
+}
+
+/* 主题切换 */
+body.light-theme {
+    --background: var(--background-light);
+    --text-primary: var(--text-primary-light);
+    --text-secondary: var(--text-secondary-light);
+    --border: var(--border-light);
+    --card-background: var(--card-background-light);
+    --sidebar-background: var(--sidebar-background-light);
+    --header-background: var(--header-background-light);
+    --shadow: var(--shadow-light);
+    --code-background: var(--code-background-light);
+}
+
+body.dark-theme {
+    --background: var(--background-dark);
+    --text-primary: var(--text-primary-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --border: var(--border-dark);
+    --card-background: var(--card-background-dark);
+    --sidebar-background: var(--sidebar-background-dark);
+    --header-background: var(--header-background-dark);
+    --shadow: var(--shadow-dark);
+    --code-background: var(--code-background-dark);
+}
+
+/* 基本样式 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--background);
+    color: var(--text-primary);
+    line-height: 1.6;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* 布局 */
+header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: var(--header-height);
+    background-color: var(--header-background);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+}
+
+.site-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+.intro {
+    padding: 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro-text {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    flex-shrink: 0;
+    background-color: var(--sidebar-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    position: sticky;
+    top: calc(var(--header-height) + 20px);
+    height: calc(100vh - var(--header-height) - 40px);
+    overflow-y: auto;
+}
+
+.sidebar-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-item {
+    padding: 12px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+    font-weight: 500;
+}
+
+.sidebar-item:hover {
+    background-color: rgba(0, 113, 227, 0.1);
+}
+
+.sidebar-item.active {
+    background-color: rgba(0, 113, 227, 0.2);
+    color: var(--accent-color);
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.example-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+}
+
+.code-section {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.code-container {
+    position: relative;
+    background-color: var(--code-background);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.code-container pre {
+    margin: 0;
+    padding: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+    font-family: 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    font-size: 14px;
+    white-space: pre;
+    word-wrap: normal;
+}
+
+.code-container pre code {
+    display: inline-block;
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.preview-section {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.preview-container {
+    border-radius: 8px;
+    padding: 20px;
+    background-color: white;
+    overflow: hidden;
+    min-height: 200px;
+    max-height: 800px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.preview-container * {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.preview-container img,
+.preview-container iframe,
+.preview-container video,
+.preview-container table,
+.preview-container div {
+    max-width: 100% !important;
+    max-height: 600px !important;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid var(--border);
+}
+
+.footer-text {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* 主题切换按钮 */
+#theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-speed);
+}
+
+#theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme #theme-toggle .fa-sun {
+    display: none;
+}
+
+body.dark-theme #theme-toggle .fa-moon {
+    display: none;
+}
+
+body.dark-theme #theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 语言切换按钮 */
+#language-toggle {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 15px;
+    transition: background-color var(--transition-speed);
+}
+
+#language-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+body.dark-theme #language-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 复制按钮 */
+.copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-speed);
+}
+
+body.dark-theme .copy-button {
+    background-color: rgba(50, 50, 50, 0.8);
+    color: white;
+}
+
+.copy-button:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+body.dark-theme .copy-button:hover {
+    background-color: rgba(70, 70, 70, 1);
+}
+
+.copy-success {
+    color: #4CAF50;
+}
+
+/* 响应式设计 */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        position: static;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    
+    .sidebar-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .sidebar-item {
+        flex-grow: 1;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-title {
+        font-size: 1.2rem;
+    }
+    
+    .example-title {
+        font-size: 1.5rem;
+    }
+    
+    .code-container pre {
+        font-size: 12px;
+    }
+} 

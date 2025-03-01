@@ -1,0 +1,142 @@
+<div class="responsive-container">
+  <h2>响应式卡片设计</h2>
+  <p>自适应不同屏幕尺寸的卡片布局</p>
+  
+  <div class="card-grid">
+    <div class="resp-card">
+      <div class="card-img" style="background-color: #4285f4;"></div>
+      <div class="card-content">
+        <h3>卡片标题 1</h3>
+        <p>这是一个响应式卡片设计，能够自动适应不同的屏幕尺寸和布局。</p>
+        <a href="#" class="card-btn">了解更多</a>
+      </div>
+    </div>
+    
+    <div class="resp-card">
+      <div class="card-img" style="background-color: #34a853;"></div>
+      <div class="card-content">
+        <h3>卡片标题 2</h3>
+        <p>卡片布局会根据可用空间调整，在小屏幕上单列显示，大屏幕上多列显示。</p>
+        <a href="#" class="card-btn">了解更多</a>
+      </div>
+    </div>
+    
+    <div class="resp-card">
+      <div class="card-img" style="background-color: #fbbc05;"></div>
+      <div class="card-content">
+        <h3>卡片标题 3</h3>
+        <p>响应式设计使用弹性盒和网格布局，结合媒体查询实现不同设备上的最佳体验。</p>
+        <a href="#" class="card-btn">了解更多</a>
+      </div>
+    </div>
+    
+    <div class="resp-card">
+      <div class="card-img" style="background-color: #ea4335;"></div>
+      <div class="card-content">
+        <h3>卡片标题 4</h3>
+        <p>这种设计模式在产品展示、博客文章、服务介绍等场景中非常常见。</p>
+        <a href="#" class="card-btn">了解更多</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.responsive-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+}
+
+.responsive-container h2 {
+  margin-top: 0;
+  color: #333;
+  text-align: center;
+}
+
+.responsive-container p {
+  color: #666;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.resp-card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.resp-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.card-img {
+  height: 180px;
+  background-color: #f0f0f0;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-content h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card-content p {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.card-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #0066cc;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  transition: background-color 0.3s;
+}
+
+.card-btn:hover {
+  background-color: #0055aa;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .responsive-container {
+    padding: 20px;
+  }
+  
+  .card-img {
+    height: 150px;
+  }
+}
+</style> 

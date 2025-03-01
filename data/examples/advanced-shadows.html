@@ -1,0 +1,175 @@
+<div class="shadow-container">
+  <h2>高级阴影效果</h2>
+  <p>复杂的阴影效果可以增强空间感和层次感</p>
+  
+  <div class="shadow-grid">
+    <div class="shadow-card basic-shadow">
+      <h3>基础阴影</h3>
+      <p>最简单的单一方向阴影</p>
+    </div>
+    
+    <div class="shadow-card layered-shadow">
+      <h3>多层阴影</h3>
+      <p>结合多个阴影创造深度</p>
+    </div>
+    
+    <div class="shadow-card inset-shadow">
+      <h3>内嵌阴影</h3>
+      <p>凹陷效果的内部阴影</p>
+    </div>
+    
+    <div class="shadow-card gradient-shadow">
+      <h3>渐变阴影</h3>
+      <p>利用径向渐变制造的阴影</p>
+    </div>
+    
+    <div class="shadow-card glow-shadow">
+      <h3>发光效果</h3>
+      <p>模拟发光的阴影效果</p>
+    </div>
+    
+    <div class="shadow-card floating-shadow">
+      <h3>悬浮效果</h3>
+      <p>营造悬浮在表面上的感觉</p>
+    </div>
+  </div>
+</div>
+
+<style>
+.shadow-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+}
+
+.shadow-container h2 {
+  margin-top: 0;
+  color: #333;
+  text-align: center;
+}
+
+.shadow-container p {
+  color: #666;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.shadow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.shadow-card {
+  height: 180px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.shadow-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.shadow-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* 1. 基础阴影 */
+.basic-shadow {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.basic-shadow:hover {
+  box-shadow: 0 15px 20px -3px rgba(0, 0, 0, 0.2);
+}
+
+/* 2. 多层阴影 */
+.layered-shadow {
+  box-shadow: 
+    0 5px 10px rgba(0, 0, 0, 0.05),
+    0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.layered-shadow:hover {
+  box-shadow: 
+    0 5px 10px rgba(0, 0, 0, 0.07),
+    0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+/* 3. 内嵌阴影 */
+.inset-shadow {
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f5f5f5;
+}
+
+.inset-shadow:hover {
+  box-shadow: inset 0 2px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* 4. 渐变阴影 */
+.gradient-shadow {
+  position: relative;
+}
+
+.gradient-shadow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  margin: -2px;
+  border-radius: 12px;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.gradient-shadow:hover::after {
+  opacity: 1;
+}
+
+/* 5. 发光效果 */
+.glow-shadow {
+  box-shadow: 0 0 15px rgba(66, 133, 244, 0.3);
+}
+
+.glow-shadow:hover {
+  box-shadow: 0 0 25px rgba(66, 133, 244, 0.5);
+}
+
+/* 6. 悬浮效果 */
+.floating-shadow {
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.05),
+    0 6px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(0);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.floating-shadow:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    0 10px 10px rgba(0, 0, 0, 0.1);
+}
+</style> 

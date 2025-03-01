@@ -1,0 +1,163 @@
+<div class="parallax-container">
+  <h2>视差滚动效果</h2>
+  <p class="intro-text">滚动页面体验元素以不同速度移动产生的深度感</p>
+  
+  <div class="parallax-section hero">
+    <div class="parallax-bg"></div>
+    <div class="content">
+      <h3>视差背景</h3>
+    </div>
+  </div>
+  
+  <div class="content-section">
+    <h3>视差滚动</h3>
+    <p>视差滚动是一种网页设计技术，其中背景内容（如图像）以不同于前景内容的速度移动，创造出3D效果。</p>
+    <p>这种效果能够增强用户体验，为网站增添深度感和沉浸感。</p>
+  </div>
+  
+  <div class="parallax-section cards">
+    <div class="parallax-card" data-speed="1.1">
+      <h4>层级 1</h4>
+      <p>慢速移动</p>
+    </div>
+    <div class="parallax-card" data-speed="1.05">
+      <h4>层级 2</h4>
+      <p>中速移动</p>
+    </div>
+    <div class="parallax-card" data-speed="1">
+      <h4>层级 3</h4>
+      <p>正常速度</p>
+    </div>
+  </div>
+  
+  <div class="content-section">
+    <h3>实现方式</h3>
+    <p>视差效果可以通过CSS的background-attachment: fixed属性实现简单效果，或者通过JavaScript监听滚动事件来创建更复杂的效果。</p>
+    <p>现代网站中，视差效果常用于突出重点内容、讲述品牌故事或创建令人印象深刻的着陆页。</p>
+  </div>
+</div>
+
+<style>
+.parallax-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.parallax-container h2 {
+  text-align: center;
+  margin: 30px 0 10px;
+  color: #333;
+}
+
+.intro-text {
+  text-align: center;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+/* 视差背景部分 */
+.parallax-section.hero {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150%;
+  background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba');
+  background-size: cover;
+  background-position: center;
+  transform: translateZ(0);
+  will-change: transform;
+  z-index: -1;
+}
+
+.parallax-section.hero .content {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px 40px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.parallax-section.hero h3 {
+  margin: 0;
+  font-size: 2rem;
+  color: #333;
+}
+
+/* 内容部分 */
+.content-section {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.content-section h3 {
+  color: #333;
+  margin-top: 0;
+}
+
+.content-section p {
+  color: #666;
+}
+
+/* 视差卡片部分 */
+.parallax-section.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 60px 20px;
+  flex-wrap: wrap;
+}
+
+.parallax-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 200px;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.parallax-card h4 {
+  margin-top: 0;
+  color: #333;
+}
+
+.parallax-card p {
+  margin-bottom: 0;
+  color: #666;
+}
+
+/* JavaScript添加的滚动效果会在这里生效 */
+</style>
+
+<script>
+window.addEventListener('scroll', function() {
+  // 处理背景视差效果
+  const parallaxBg = document.querySelector('.parallax-bg');
+  const scrollPosition = window.pageYOffset;
+  parallaxBg.style.transform = 'translateY(' + scrollPosition * 0.5 + 'px)';
+  
+  // 处理卡片视差效果
+  const cards = document.querySelectorAll('.parallax-card');
+  cards.forEach(card => {
+    const speed = card.getAttribute('data-speed');
+    const yPos = -(scrollPosition * (speed - 1));
+    card.style.transform = 'translateY(' + yPos + 'px)';
+  });
+});
+</script> 

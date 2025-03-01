@@ -1,0 +1,203 @@
+<div class="custom-props-container">
+  <h2>CSS自定义属性</h2>
+  <p>使用CSS变量实现主题定制和高效样式管理</p>
+  
+  <div class="controls">
+    <div class="color-controls">
+      <label>主色调：</label>
+      <input type="color" id="primary-color" value="#3f51b5">
+      
+      <label>次要色调：</label>
+      <input type="color" id="secondary-color" value="#ff4081">
+    </div>
+    
+    <div class="size-controls">
+      <label>元素大小：</label>
+      <input type="range" id="size-control" min="0.5" max="1.5" step="0.1" value="1">
+    </div>
+    
+    <div class="spacing-controls">
+      <label>元素间距：</label>
+      <input type="range" id="spacing-control" min="0.5" max="2" step="0.1" value="1">
+    </div>
+  </div>
+  
+  <div class="demo-section">
+    <div class="custom-card">
+      <h3>卡片标题</h3>
+      <p>这个卡片使用CSS变量控制样式。尝试调整上方的控制器来修改不同属性。</p>
+      <button class="custom-button primary">主要按钮</button>
+    </div>
+    
+    <div class="custom-card">
+      <h3>另一个卡片</h3>
+      <p>CSS自定义属性（也称为CSS变量）允许我们定义可复用的值，并在样式表中引用它们。</p>
+      <button class="custom-button secondary">次要按钮</button>
+    </div>
+  </div>
+  
+  <div class="code-preview">
+    <h3>CSS变量定义</h3>
+    <pre><code>:root {
+  --primary-color: #3f51b5;
+  --secondary-color: #ff4081;
+  --text-color: #333333;
+  --base-size: 1;
+  --base-spacing: 1;
+}</code></pre>
+    <h3>使用方式</h3>
+    <pre><code>.custom-button.primary {
+  background-color: var(--primary-color);
+  padding: calc(8px * var(--base-size));
+  margin: calc(10px * var(--base-spacing));
+}</code></pre>
+  </div>
+</div>
+
+<style>
+:root {
+  --primary-color: #3f51b5;
+  --secondary-color: #ff4081;
+  --text-color: #333333;
+  --background-color: #f5f5f5;
+  --card-background: #ffffff;
+  --border-radius: 8px;
+  --base-size: 1;
+  --base-spacing: 1;
+}
+
+.custom-props-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: var(--background-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+  border-radius: var(--border-radius);
+  color: var(--text-color);
+}
+
+.custom-props-container h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.custom-props-container > p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.controls {
+  background-color: var(--card-background);
+  padding: calc(15px * var(--base-size));
+  border-radius: var(--border-radius);
+  margin-bottom: calc(20px * var(--base-spacing));
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.color-controls, .size-controls, .spacing-controls {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.controls label {
+  margin-right: 10px;
+}
+
+.demo-section {
+  display: flex;
+  gap: calc(20px * var(--base-spacing));
+  margin-bottom: calc(30px * var(--base-spacing));
+  flex-wrap: wrap;
+}
+
+.custom-card {
+  background-color: var(--card-background);
+  padding: calc(20px * var(--base-size));
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 250px;
+}
+
+.custom-card h3 {
+  color: var(--primary-color);
+  margin-top: 0;
+  font-size: calc(18px * var(--base-size));
+}
+
+.custom-card p {
+  color: var(--text-color);
+  font-size: calc(14px * var(--base-size));
+  line-height: 1.6;
+}
+
+.custom-button {
+  padding: calc(10px * var(--base-size)) calc(20px * var(--base-size));
+  border: none;
+  border-radius: calc(4px * var(--base-size));
+  color: white;
+  font-size: calc(14px * var(--base-size));
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.custom-button.primary {
+  background-color: var(--primary-color);
+}
+
+.custom-button.secondary {
+  background-color: var(--secondary-color);
+}
+
+.custom-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.code-preview {
+  background-color: #272822;
+  color: #f8f8f2;
+  padding: calc(20px * var(--base-size));
+  border-radius: var(--border-radius);
+  overflow: auto;
+}
+
+.code-preview h3 {
+  color: #66d9ef;
+  margin-top: 0;
+}
+
+.code-preview pre {
+  margin: 0 0 20px 0;
+}
+
+.code-preview code {
+  font-family: 'Fira Code', monospace;
+  font-size: calc(14px * var(--base-size));
+}
+</style>
+
+<script>
+// 监听颜色选择器变化
+document.getElementById('primary-color').addEventListener('input', function(e) {
+  document.documentElement.style.setProperty('--primary-color', e.target.value);
+});
+
+document.getElementById('secondary-color').addEventListener('input', function(e) {
+  document.documentElement.style.setProperty('--secondary-color', e.target.value);
+});
+
+// 监听大小滑块变化
+document.getElementById('size-control').addEventListener('input', function(e) {
+  document.documentElement.style.setProperty('--base-size', e.target.value);
+});
+
+// 监听间距滑块变化
+document.getElementById('spacing-control').addEventListener('input', function(e) {
+  document.documentElement.style.setProperty('--base-spacing', e.target.value);
+});
+</script> 

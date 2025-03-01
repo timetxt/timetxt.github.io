@@ -1,0 +1,215 @@
+<div class="filters-container">
+  <h2>CSS图片滤镜效果</h2>
+  <p>使用CSS滤镜属性为图像添加各种视觉效果</p>
+  
+  <div class="filters-grid">
+    <div class="filter-card">
+      <div class="filter-img original">
+        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b" alt="风景图片">
+      </div>
+      <div class="filter-info">
+        <h3>原始图像</h3>
+        <code>filter: none;</code>
+      </div>
+    </div>
+    
+    <div class="filter-card">
+      <div class="filter-img grayscale">
+        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b" alt="风景图片">
+      </div>
+      <div class="filter-info">
+        <h3>灰度</h3>
+        <code>filter: grayscale(100%);</code>
+      </div>
+    </div>
+    
+    <div class="filter-card">
+      <div class="filter-img sepia">
+        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b" alt="风景图片">
+      </div>
+      <div class="filter-info">
+        <h3>褐色</h3>
+        <code>filter: sepia(80%);</code>
+      </div>
+    </div>
+    
+    <div class="filter-card">
+      <div class="filter-img blur">
+        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b" alt="风景图片">
+      </div>
+      <div class="filter-info">
+        <h3>模糊</h3>
+        <code>filter: blur(4px);</code>
+      </div>
+    </div>
+    
+    <div class="filter-card">
+      <div class="filter-img saturate">
+        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b" alt="风景图片">
+      </div>
+      <div class="filter-info">
+        <h3>饱和度</h3>
+        <code>filter: saturate(200%);</code>
+      </div>
+    </div>
+    
+    <div class="filter-card">
+      <div class="filter-img brightness">
+        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b" alt="风景图片">
+      </div>
+      <div class="filter-info">
+        <h3>亮度</h3>
+        <code>filter: brightness(150%);</code>
+      </div>
+    </div>
+    
+    <div class="filter-card">
+      <div class="filter-img contrast">
+        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b" alt="风景图片">
+      </div>
+      <div class="filter-info">
+        <h3>对比度</h3>
+        <code>filter: contrast(180%);</code>
+      </div>
+    </div>
+    
+    <div class="filter-card">
+      <div class="filter-img hue-rotate">
+        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b" alt="风景图片">
+      </div>
+      <div class="filter-info">
+        <h3>色相旋转</h3>
+        <code>filter: hue-rotate(180deg);</code>
+      </div>
+    </div>
+    
+    <div class="filter-card">
+      <div class="filter-img invert">
+        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b" alt="风景图片">
+      </div>
+      <div class="filter-info">
+        <h3>反转</h3>
+        <code>filter: invert(80%);</code>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.filters-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+}
+
+.filters-container h2 {
+  margin-top: 0;
+  color: #333;
+  text-align: center;
+}
+
+.filters-container > p {
+  color: #666;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.filters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.filter-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.filter-card:hover {
+  transform: translateY(-5px);
+}
+
+.filter-img {
+  height: 180px;
+  overflow: hidden;
+}
+
+.filter-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s;
+}
+
+.filter-info {
+  padding: 15px;
+}
+
+.filter-info h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.filter-info code {
+  background-color: #f0f0f0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: #e53935;
+}
+
+/* 滤镜效果 */
+.grayscale img {
+  filter: grayscale(100%);
+}
+
+.sepia img {
+  filter: sepia(80%);
+}
+
+.blur img {
+  filter: blur(4px);
+}
+
+.saturate img {
+  filter: saturate(200%);
+}
+
+.brightness img {
+  filter: brightness(150%);
+}
+
+.contrast img {
+  filter: contrast(180%);
+}
+
+.hue-rotate img {
+  filter: hue-rotate(180deg);
+}
+
+.invert img {
+  filter: invert(80%);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .filters-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .filters-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style> 

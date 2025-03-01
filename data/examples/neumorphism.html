@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新拟物化设计示例</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e0e5ec;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            color: #666;
+            text-align: center;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        
+        .neumorphic-btn {
+            display: inline-block;
+            padding: 16px 32px;
+            border-radius: 50px;
+            background: #e0e5ec;
+            border: none;
+            font-weight: bold;
+            color: #666;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 
+                8px 8px 15px rgba(163, 177, 198, 0.6),
+                -8px -8px 15px rgba(255, 255, 255, 0.5);
+            transition: all 0.2s ease-in-out;
+            outline: none;
+        }
+        
+        .neumorphic-btn:hover {
+            box-shadow: 
+                6px 6px 10px rgba(163, 177, 198, 0.6),
+                -6px -6px 10px rgba(255, 255, 255, 0.5);
+            transform: translateY(2px);
+        }
+        
+        .neumorphic-btn:active {
+            box-shadow: 
+                inset 4px 4px 8px rgba(163, 177, 198, 0.8),
+                inset -4px -4px 8px rgba(255, 255, 255, 0.5);
+            transform: translateY(4px);
+        }
+    </style>
+</head>
+<body>
+    <h2>新拟物化设计</h2>
+    <p>这种设计通过精细控制的阴影创造出"软UI"效果。</p>
+    <div class="neumorphic-btn">点击我</div>
+</body>
+</html> 

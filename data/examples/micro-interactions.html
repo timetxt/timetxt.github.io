@@ -1,0 +1,252 @@
+<div class="micro-container">
+  <h2>微交互设计</h2>
+  <p>微交互能增强用户体验，给予即时反馈。请尝试与下方元素互动。</p>
+  
+  <div class="micro-elements">
+    <button class="micro-button">点击我</button>
+    
+    <label class="toggle">
+      <input type="checkbox">
+      <span class="toggle-slider"></span>
+    </label>
+    
+    <div class="heart-container">
+      <input type="checkbox" id="heart">
+      <label for="heart" class="heart-label">
+        <svg viewBox="0 0 24 24" class="heart-svg">
+          <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+        </svg>
+      </label>
+    </div>
+    
+    <div class="notification-bell">
+      <svg viewBox="0 0 24 24" class="bell-svg">
+        <path d="M12,22A2,2 0 0,0 14,20H10A2,2 0 0,0 12,22M18,16V11C18,7.93 16.36,5.36 13.5,4.68V4A1.5,1.5 0 0,0 12,2.5A1.5,1.5 0 0,0 10.5,4V4.68C7.63,5.36 6,7.92 6,11V16L4,18V19H20V18L18,16Z"/>
+      </svg>
+      <span class="notification-badge">3</span>
+    </div>
+  </div>
+</div>
+
+<style>
+.micro-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+}
+
+.micro-container h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.micro-container p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.micro-elements {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* 按钮微交互 */
+.micro-button {
+  padding: 12px 24px;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.micro-button:hover {
+  background-color: #3367d6;
+}
+
+.micro-button:active {
+  transform: scale(0.96);
+}
+
+.micro-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.micro-button:focus:not(:active)::after {
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(20, 20);
+    opacity: 0;
+  }
+}
+
+/* 开关微交互 */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.toggle input:checked + .toggle-slider {
+  background-color: #34a853;
+}
+
+.toggle input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}
+
+/* 喜欢按钮微交互 */
+.heart-container {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+#heart {
+  display: none;
+}
+
+.heart-label {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.heart-svg {
+  width: 100%;
+  height: 100%;
+  fill: #ddd;
+  stroke: #333;
+  stroke-width: 1;
+  transition: all 0.35s;
+}
+
+#heart:checked + .heart-label .heart-svg {
+  fill: #f44336;
+  stroke: #f44336;
+  animation: heartBeat 0.4s;
+}
+
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  40% {
+    transform: scale(0.9);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 通知铃铛微交互 */
+.notification-bell {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.bell-svg {
+  width: 100%;
+  height: 100%;
+  fill: #666;
+  transition: all 0.3s;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ea4335;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.notification-bell:hover .bell-svg {
+  fill: #333;
+  animation: bellShake 0.5s;
+}
+
+@keyframes bellShake {
+  0% { transform: rotate(0); }
+  20% { transform: rotate(8deg); }
+  40% { transform: rotate(-8deg); }
+  60% { transform: rotate(4deg); }
+  80% { transform: rotate(-4deg); }
+  100% { transform: rotate(0); }
+}
+</style> 

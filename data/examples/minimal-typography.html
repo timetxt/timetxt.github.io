@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Typography Example</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5% 5%;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 120px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .title {
+            font-size: 5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 40px;
+            color: #111;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        
+        .subtitle {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            color: #222;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.03);
+        }
+        
+        .paragraph {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            max-width: 760px;
+        }
+        
+        .highlight {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin: 80px 0;
+            color: #222;
+            max-width: 900px;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.05);
+        }
+        
+        .quote {
+            font-size: 2rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.4;
+            border-left: 4px solid #333;
+            padding-left: 40px;
+            margin: 60px 0;
+            max-width: 800px;
+        }
+        
+        .caption {
+            font-size: 0.875rem;
+            color: #666;
+            margin-top: 12px;
+            letter-spacing: 0.02em;
+        }
+        
+        @media (max-width: 768px) {
+            .title {
+                font-size: 3.5rem;
+            }
+            
+            .subtitle {
+                font-size: 2rem;
+            }
+            
+            .highlight {
+                font-size: 2.5rem;
+                margin: 50px 0;
+            }
+            
+            .quote {
+                font-size: 1.5rem;
+                padding-left: 24px;
+                margin: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <h1 class="title">Minimal Typography</h1>
+            <p class="paragraph">Typography is the art and technique of arranging type to make written language legible, readable, and appealing when displayed. Good typography establishes a strong visual hierarchy and provides a graphic balance to enhance readability.</p>
+            <p class="paragraph">In minimal design, typography takes center stage with careful attention to font size, spacing, and subtle shadows that create depth without overwhelming the content.</p>
+        </div>
+        
+        <div class="highlight">
+            Large type sizes combined with careful spacing create visual impact while maintaining elegance and readability.
+        </div>
+        
+        <div class="section">
+            <h2 class="subtitle">The Power of Space</h2>
+            <p class="paragraph">White space (negative space) is as important as the text itself. Generous margins and line spacing allow content to breathe and improve comprehension. The right balance creates rhythm and guides the reader's eye naturally through the content.</p>
+            
+            <div class="quote">
+                "Typography is what language looks like."
+                <div class="caption">— Ellen Lupton, Graphic Designer</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="subtitle">Subtle Depth</h2>
+            <p class="paragraph">Minimal typography doesn't mean flat design. Carefully applied text shadows create subtle depth that enhances legibility without drawing attention to the effect itself. The goal is to create a sense of quality and intention.</p>
+            <p class="paragraph">When used correctly, soft shadows elevate typography from the page, creating a tactile quality that engages viewers on both conscious and subconscious levels.</p>
+        </div>
+    </div>
+</body>
+</html> 

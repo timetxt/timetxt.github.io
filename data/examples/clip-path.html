@@ -1,0 +1,253 @@
+<div class="clippath-container">
+  <h2>CSS剪贴路径效果</h2>
+  <p>使用clip-path属性创建各种形状和蒙版效果</p>
+  
+  <div class="clippath-grid">
+    <div class="clippath-card">
+      <div class="clippath-shape circle">
+        <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131" alt="猫咪图片">
+      </div>
+      <div class="clippath-info">
+        <h3>圆形</h3>
+        <code>clip-path: circle(50% at 50% 50%);</code>
+      </div>
+    </div>
+    
+    <div class="clippath-card">
+      <div class="clippath-shape ellipse">
+        <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131" alt="猫咪图片">
+      </div>
+      <div class="clippath-info">
+        <h3>椭圆形</h3>
+        <code>clip-path: ellipse(40% 50% at 50% 50%);</code>
+      </div>
+    </div>
+    
+    <div class="clippath-card">
+      <div class="clippath-shape triangle">
+        <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131" alt="猫咪图片">
+      </div>
+      <div class="clippath-info">
+        <h3>三角形</h3>
+        <code>clip-path: polygon(50% 0%, 0% 100%, 100% 100%);</code>
+      </div>
+    </div>
+    
+    <div class="clippath-card">
+      <div class="clippath-shape rhombus">
+        <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131" alt="猫咪图片">
+      </div>
+      <div class="clippath-info">
+        <h3>菱形</h3>
+        <code>clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);</code>
+      </div>
+    </div>
+    
+    <div class="clippath-card">
+      <div class="clippath-shape pentagon">
+        <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131" alt="猫咪图片">
+      </div>
+      <div class="clippath-info">
+        <h3>五边形</h3>
+        <code>clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);</code>
+      </div>
+    </div>
+    
+    <div class="clippath-card">
+      <div class="clippath-shape hexagon">
+        <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131" alt="猫咪图片">
+      </div>
+      <div class="clippath-info">
+        <h3>六边形</h3>
+        <code>clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);</code>
+      </div>
+    </div>
+    
+    <div class="clippath-card">
+      <div class="clippath-shape star">
+        <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131" alt="猫咪图片">
+      </div>
+      <div class="clippath-info">
+        <h3>星形</h3>
+        <code>clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);</code>
+      </div>
+    </div>
+    
+    <div class="clippath-card">
+      <div class="clippath-shape message">
+        <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131" alt="猫咪图片">
+      </div>
+      <div class="clippath-info">
+        <h3>消息框</h3>
+        <code>clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);</code>
+      </div>
+    </div>
+  </div>
+  
+  <div class="clippath-interactive">
+    <h3>交互式形状</h3>
+    <p>悬停在下方形状上查看变形效果</p>
+    <div class="morph-shape"></div>
+  </div>
+</div>
+
+<style>
+.clippath-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+}
+
+.clippath-container h2 {
+  margin-top: 0;
+  color: #333;
+  text-align: center;
+}
+
+.clippath-container > p {
+  color: #666;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.clippath-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.clippath-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.clippath-card:hover {
+  transform: translateY(-5px);
+}
+
+.clippath-shape {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  position: relative;
+}
+
+.clippath-shape img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.clippath-info {
+  padding: 15px;
+}
+
+.clippath-info h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.clippath-info code {
+  background-color: #f0f0f0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: #e53935;
+  word-break: break-all;
+}
+
+/* 剪贴路径形状 */
+.circle img {
+  clip-path: circle(50% at 50% 50%);
+}
+
+.ellipse img {
+  clip-path: ellipse(40% 50% at 50% 50%);
+}
+
+.triangle img {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.rhombus img {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.pentagon img {
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+
+.hexagon img {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.star img {
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.message img {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+}
+
+/* 交互式形状部分 */
+.clippath-interactive {
+  background-color: white;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.clippath-interactive h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.clippath-interactive p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.morph-shape {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, #4285f4, #34a853, #fbbc05, #ea4335);
+  margin: 0 auto;
+  clip-path: circle(50% at 50% 50%);
+  transition: clip-path 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.morph-shape:hover {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .clippath-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+  
+  .clippath-info code {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .clippath-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style> 
