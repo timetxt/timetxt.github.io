@@ -2,6 +2,7 @@
 
 这是一个现代静态网页设计项目，旨在向用户展示网页设计术语的实际效果。用户可以选择不同的设计术语（如玻璃拟态背景、新拟态设计等），网站会显示相应的实现代码，并实时预览效果。
 
+Demo 入口: [https://timetxt.github.io/](https://timetxt.github.io/)
 ![](https://timetxt.github.io/screenshot.png?w=200&h=400)
 
 ## 项目特点
