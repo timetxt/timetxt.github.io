@@ -26,8 +26,6 @@
 
 ## 项目结构
 
-
-⌘K to generate a command
 根据我们网页的设计理念,架构和文件名称,扩展这个提示词,保存在prompt.html文件中. 下一次我使用你生成的提示词,我可以复现这个网页.然后把prompt.html被index.html文件调用,作为链接放在页面上部
 
 
