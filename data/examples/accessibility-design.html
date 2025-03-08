@@ -1,466 +1,495 @@
-<div class="a11y-container">
-  <h2>可访问性设计</h2>
-  <p>创建包容性的网页设计，确保所有用户都能顺畅使用</p>
+<div class="a11y-container" data-lang="zh-en">
+  <div class="language-switch">
+    <button class="lang-btn active" data-lang="zh">中文</button>
+    <button class="lang-btn" data-lang="en">English</button>
+  </div>
   
-  <div class="a11y-section">
-    <h3>颜色对比度</h3>
-    <p>确保文本和背景之间有足够的对比度是可访问性的基础要求</p>
+  <h2>
+    <span data-zh="可访问性设计">可访问性设计</span>
+    <span data-en="Accessibility Design">Accessibility Design</span>
+  </h2>
+  <p>
+    <span data-zh="确保所有用户都能访问和使用您的网站，无论其能力如何">确保所有用户都能访问和使用您的网站，无论其能力如何</span>
+    <span data-en="Ensuring all users can access and use your website regardless of abilities">Ensuring all users can access and use your website regardless of abilities</span>
+  </p>
+  
+  <div class="a11y-grid">
+    <div class="a11y-card">
+      <h3>
+        <span data-zh="颜色对比度">颜色对比度</span>
+        <span data-en="Color Contrast">Color Contrast</span>
+      </h3>
+      <p>
+        <span data-zh="文本和背景之间必须有足够的对比度，使视力障碍用户能够阅读内容。">文本和背景之间必须有足够的对比度，使视力障碍用户能够阅读内容。</span>
+        <span data-en="Text and background must have sufficient contrast to allow visually impaired users to read content.">Text and background must have sufficient contrast to allow visually impaired users to read content.</span>
+      </p>
+      <div class="a11y-demo contrast-demo">
+        <div class="contrast-examples">
+          <div class="contrast-example good">
+            <span data-zh="良好对比度">良好对比度</span>
+            <span data-en="Good Contrast">Good Contrast</span>
+          </div>
+          <div class="contrast-example poor">
+            <span data-zh="差的对比度">差的对比度</span>
+            <span data-en="Poor Contrast">Poor Contrast</span>
+          </div>
+        </div>
+      </div>
+    </div>
     
-    <div class="contrast-examples">
-      <div class="contrast-card poor">
-        <div class="contrast-sample">
-          <p>对比度不足</p>
+    <div class="a11y-card">
+      <h3>
+        <span data-zh="键盘导航">键盘导航</span>
+        <span data-en="Keyboard Navigation">Keyboard Navigation</span>
+      </h3>
+      <p>
+        <span data-zh="确保所有交互元素都可以通过键盘访问，并具有明显的焦点状态。">确保所有交互元素都可以通过键盘访问，并具有明显的焦点状态。</span>
+        <span data-en="Ensure all interactive elements are keyboard accessible with visible focus states.">Ensure all interactive elements are keyboard accessible with visible focus states.</span>
+      </p>
+      <div class="a11y-demo keyboard-demo">
+        <div class="keyboard-navigation">
+          <button class="a11y-button">
+            <span data-zh="按钮 1">按钮 1</span>
+            <span data-en="Button 1">Button 1</span>
+          </button>
+          <button class="a11y-button">
+            <span data-zh="按钮 2">按钮 2</span>
+            <span data-en="Button 2">Button 2</span>
+          </button>
+          <button class="a11y-button">
+            <span data-zh="按钮 3">按钮 3</span>
+            <span data-en="Button 3">Button 3</span>
+          </button>
         </div>
-        <div class="contrast-info">
-          <div class="contrast-score">2.6:1</div>
-          <p>不符合WCAG标准</p>
+        <p class="focus-instruction">
+          <span data-zh="尝试使用Tab键在按钮之间导航">尝试使用Tab键在按钮之间导航</span>
+          <span data-en="Try navigating between buttons using the Tab key">Try navigating between buttons using the Tab key</span>
+        </p>
+      </div>
+    </div>
+    
+    <div class="a11y-card">
+      <h3>
+        <span data-zh="表单标签">表单标签</span>
+        <span data-en="Form Labels">Form Labels</span>
+      </h3>
+      <p>
+        <span data-zh="所有表单控件必须有关联的标签，以帮助视障用户理解输入的内容。">所有表单控件必须有关联的标签，以帮助视障用户理解输入的内容。</span>
+        <span data-en="All form controls must have associated labels to help visually impaired users understand what to input.">All form controls must have associated labels to help visually impaired users understand what to input.</span>
+      </p>
+      <div class="a11y-demo form-demo">
+        <form class="a11y-form">
+          <div class="form-group">
+            <label for="name">
+              <span data-zh="姓名">姓名</span>
+              <span data-en="Name">Name</span>
+            </label>
+            <input type="text" id="name" class="a11y-input">
+          </div>
+          <div class="form-group">
+            <label for="email">
+              <span data-zh="电子邮件">电子邮件</span>
+              <span data-en="Email">Email</span>
+            </label>
+            <input type="email" id="email" class="a11y-input">
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <div class="a11y-card">
+      <h3>
+        <span data-zh="图像替代文本">图像替代文本</span>
+        <span data-en="Image Alt Text">Image Alt Text</span>
+      </h3>
+      <p>
+        <span data-zh="为所有非装饰性图像提供替代文本，以便屏幕阅读器用户理解图像内容。">为所有非装饰性图像提供替代文本，以便屏幕阅读器用户理解图像内容。</span>
+        <span data-en="Provide alternative text for all non-decorative images so screen reader users can understand image content.">Provide alternative text for all non-decorative images so screen reader users can understand image content.</span>
+      </p>
+      <div class="a11y-demo alt-text-demo">
+        <figure class="a11y-figure">
+          <img src="https://placekitten.com/300/200" alt="A cute kitten" class="a11y-image">
+          <figcaption>
+            <code>alt="A cute kitten"</code>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    
+    <div class="a11y-card">
+      <h3>
+        <span data-zh="可调整文本大小">可调整文本大小</span>
+        <span data-en="Resizable Text">Resizable Text</span>
+      </h3>
+      <p>
+        <span data-zh="文本应能放大至少200%而不丢失内容或功能，以帮助视力不佳的用户。">文本应能放大至少200%而不丢失内容或功能，以帮助视力不佳的用户。</span>
+        <span data-en="Text should be resizable up to 200% without loss of content or functionality to help users with low vision.">Text should be resizable up to 200% without loss of content or functionality to help users with low vision.</span>
+      </p>
+      <div class="a11y-demo resize-demo">
+        <div class="text-resize-controls">
+          <button class="size-button" data-size="1">A</button>
+          <button class="size-button" data-size="1.5">A</button>
+          <button class="size-button" data-size="2">A</button>
+        </div>
+        <div class="resizable-text">
+          <span data-zh="这段文本可以调整大小而不会破坏布局。">这段文本可以调整大小而不会破坏布局。</span>
+          <span data-en="This text can be resized without breaking the layout.">This text can be resized without breaking the layout.</span>
         </div>
       </div>
-      
-      <div class="contrast-card aa">
-        <div class="contrast-sample">
-          <p>AA级对比度</p>
+    </div>
+    
+    <div class="a11y-card">
+      <h3>
+        <span data-zh="ARIA属性">ARIA属性</span>
+        <span data-en="ARIA Attributes">ARIA Attributes</span>
+      </h3>
+      <p>
+        <span data-zh="使用ARIA属性增强复杂界面元素的可访问性。">使用ARIA属性增强复杂界面元素的可访问性。</span>
+        <span data-en="Use ARIA attributes to enhance accessibility of complex interface elements.">Use ARIA attributes to enhance accessibility of complex interface elements.</span>
+      </p>
+      <div class="a11y-demo aria-demo">
+        <div class="tabs" role="tablist">
+          <button id="tab1" class="tab" role="tab" aria-selected="true" aria-controls="panel1">
+            <span data-zh="标签 1">标签 1</span>
+            <span data-en="Tab 1">Tab 1</span>
+          </button>
+          <button id="tab2" class="tab" role="tab" aria-selected="false" aria-controls="panel2">
+            <span data-zh="标签 2">标签 2</span>
+            <span data-en="Tab 2">Tab 2</span>
+          </button>
         </div>
-        <div class="contrast-info">
-          <div class="contrast-score">4.5:1</div>
-          <p>符合WCAG AA标准</p>
+        <div id="panel1" class="tab-panel" role="tabpanel" aria-labelledby="tab1">
+          <span data-zh="标签面板 1 内容">标签面板 1 内容</span>
+          <span data-en="Tab panel 1 content">Tab panel 1 content</span>
         </div>
-      </div>
-      
-      <div class="contrast-card aaa">
-        <div class="contrast-sample">
-          <p>AAA级对比度</p>
-        </div>
-        <div class="contrast-info">
-          <div class="contrast-score">7:1</div>
-          <p>符合WCAG AAA标准</p>
+        <div id="panel2" class="tab-panel" role="tabpanel" aria-labelledby="tab2" hidden>
+          <span data-zh="标签面板 2 内容">标签面板 2 内容</span>
+          <span data-en="Tab panel 2 content">Tab panel 2 content</span>
         </div>
       </div>
     </div>
   </div>
   
-  <div class="a11y-section">
-    <h3>键盘导航与焦点样式</h3>
-    <p>为使用键盘浏览的用户提供清晰的视觉焦点提示</p>
+  <style>
+    .language-switch {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
     
-    <div class="focus-examples">
-      <div class="focus-row">
-        <button class="focus-btn poor-focus">无焦点样式</button>
-        <button class="focus-btn default-focus">默认焦点样式</button>
-        <button class="focus-btn custom-focus">自定义焦点样式</button>
-      </div>
-      
-      <p class="focus-hint">请使用Tab键在按钮之间切换，体验不同的焦点样式</p>
-    </div>
-  </div>
-  
-  <div class="a11y-section">
-    <h3>文本与排版</h3>
-    <p>易读的文本排版能够帮助所有用户，尤其是有阅读障碍的用户</p>
+    .lang-btn {
+      background: none;
+      border: 1px solid #ddd;
+      padding: 5px 10px;
+      margin-left: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
     
-    <div class="typography-examples">
-      <div class="typography-card poor-typography">
-        <h4>不易阅读</h4>
-        <p>这段文字使用了很小的字体大小，行高不足，字间距过小，且使用了不易阅读的衬线字体，整体对比度不足，给用户造成阅读困难。</p>
-      </div>
-      
-      <div class="typography-card good-typography">
-        <h4>易于阅读</h4>
-        <p>这段文字使用了舒适的字体大小，充足的行高和字间距，简洁的无衬线字体，以及足够的对比度，极大地提升了可读性和舒适度。</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="a11y-section">
-    <h3>表单元素标签</h3>
-    <p>使用适当的标签和说明，使表单易于所有用户填写</p>
+    .lang-btn.active {
+      background-color: #4285f4;
+      color: white;
+      border-color: #4285f4;
+    }
     
-    <div class="form-examples">
-      <div class="form-card poor-form">
-        <h4>不易访问的表单</h4>
-        <div class="form-row">
-          <input type="text" placeholder="输入您的姓名">
-        </div>
-        <div class="form-row">
-          <select>
-            <option value="" disabled selected>选择一个选项</option>
-            <option value="1">选项 1</option>
-            <option value="2">选项 2</option>
-          </select>
-        </div>
-      </div>
-      
-      <div class="form-card good-form">
-        <h4>可访问的表单</h4>
-        <div class="form-row">
-          <label for="name-input">姓名</label>
-          <input type="text" id="name-input" aria-describedby="name-hint">
-          <div class="hint-text" id="name-hint">请输入您的全名</div>
-        </div>
-        <div class="form-row">
-          <label for="option-select">选择选项</label>
-          <select id="option-select">
-            <option value="" disabled selected>请选择</option>
-            <option value="1">选项 1</option>
-            <option value="2">选项 2</option>
-          </select>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="a11y-section">
-    <h3>屏幕阅读器友好设计</h3>
-    <p>使用合适的ARIA属性和语义化HTML确保屏幕阅读器用户的良好体验</p>
+    /* Handle language display */
+    [data-lang="zh-en"] [data-zh],
+    [data-lang="zh-en"] [data-en] {
+      display: none;
+    }
     
-    <div class="aria-examples">
-      <div class="aria-card">
-        <div class="code-example">
-          <pre><code>&lt;button 
-  aria-label="关闭对话框" 
-  aria-expanded="true"
-  class="close-btn"&gt;
-  &times;
-&lt;/button&gt;</code></pre>
-        </div>
-        <p>使用<code>aria-label</code>为非文本元素提供说明，使用<code>aria-expanded</code>表示元素当前状态。</p>
-      </div>
+    [data-lang="zh-en"] [data-zh] {
+      display: inline;
+    }
+    
+    [data-lang="zh-en"].en [data-zh] {
+      display: none;
+    }
+    
+    [data-lang="zh-en"].en [data-en] {
+      display: inline;
+    }
+    
+    .a11y-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+    }
+    
+    .a11y-container h2 {
+      text-align: center;
+      margin-top: 0;
+      color: #333;
+    }
+    
+    .a11y-container p {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    
+    .a11y-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      gap: 20px;
+    }
+    
+    .a11y-card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .a11y-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    
+    .a11y-card p {
+      color: #666;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+    
+    .a11y-demo {
+      margin-top: 20px;
+    }
+    
+    /* 颜色对比度演示 */
+    .contrast-examples {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .contrast-example {
+      padding: 15px;
+      width: 150px;
+      text-align: center;
+      border-radius: 4px;
+    }
+    
+    .contrast-example.good {
+      background-color: #333;
+      color: white;
+    }
+    
+    .contrast-example.poor {
+      background-color: #767676;
+      color: #a0a0a0;
+    }
+    
+    /* 键盘导航演示 */
+    .keyboard-navigation {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .a11y-button {
+      padding: 10px 20px;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .a11y-button:focus {
+      outline: 3px solid #f4b400;
+      outline-offset: 2px;
+    }
+    
+    .focus-instruction {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: #666;
+      font-style: italic;
+    }
+    
+    /* 表单标签演示 */
+    .a11y-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    
+    .form-group label {
+      font-weight: 500;
+      color: #333;
+    }
+    
+    .a11y-input {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    
+    .a11y-input:focus {
+      outline: 2px solid #4285f4;
+      border-color: #4285f4;
+    }
+    
+    /* 图像替代文本演示 */
+    .a11y-figure {
+      margin: 0;
+      text-align: center;
+    }
+    
+    .a11y-image {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    
+    .a11y-figure figcaption {
+      font-size: 0.85rem;
+      color: #666;
+    }
+    
+    /* 可调整文本大小演示 */
+    .text-resize-controls {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .size-button {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    
+    .size-button:nth-child(2) {
+      font-size: 1.5em;
+    }
+    
+    .size-button:nth-child(3) {
+      font-size: 2em;
+    }
+    
+    .resizable-text {
+      font-size: 16px;
+      transition: font-size 0.3s;
+    }
+    
+    /* ARIA属性演示 */
+    .tabs {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 10px;
+    }
+    
+    .tab {
+      padding: 10px 20px;
+      background-color: #f0f0f0;
+      border: none;
+      border-radius: 4px 4px 0 0;
+      cursor: pointer;
+    }
+    
+    .tab[aria-selected="true"] {
+      background-color: #4285f4;
+      color: white;
+    }
+    
+    .tab-panel {
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 0 4px 4px 4px;
+    }
+    
+    @media (max-width: 768px) {
+      .a11y-grid {
+        grid-template-columns: 1fr;
+      }
       
-      <div class="aria-card">
-        <div class="code-example">
-          <pre><code>&lt;div role="alert" aria-live="assertive"&gt;
-  表单提交成功!
-&lt;/div&gt;</code></pre>
-        </div>
-        <p>使用<code>role="alert"</code>和<code>aria-live</code>属性确保重要通知被屏幕阅读器立即读出。</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<style>
-.a11y-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 30px;
-  background-color: #f8f9fa;
-  border-radius: 10px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
-  color: #333;
-}
-
-.a11y-container h2 {
-  margin-top: 0;
-  color: #333;
-  text-align: center;
-}
-
-.a11y-container > p {
-  color: #666;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.a11y-section {
-  background-color: white;
-  border-radius: 8px;
-  padding: 25px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
-}
-
-.a11y-section h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.a11y-section > p {
-  color: #666;
-  margin-bottom: 20px;
-}
-
-/* 对比度示例 */
-.contrast-examples {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-.contrast-card {
-  width: 220px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.contrast-sample {
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-}
-
-.contrast-sample p {
-  margin: 0;
-  font-weight: 500;
-}
-
-.contrast-info {
-  padding: 15px;
-  background-color: #f5f5f5;
-  text-align: center;
-}
-
-.contrast-score {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.contrast-info p {
-  margin: 0;
-  font-size: 14px;
-  color: #666;
-}
-
-/* 对比度示例具体样式 */
-.poor .contrast-sample {
-  background-color: #f2f2f2;
-  color: #c1c1c1; /* 低对比度 */
-}
-
-.aa .contrast-sample {
-  background-color: #f8f9fa;
-  color: #6c757d; /* AA级对比度 */
-}
-
-.aaa .contrast-sample {
-  background-color: #f8f9fa;
-  color: #212529; /* AAA级对比度 */
-}
-
-/* 焦点样式示例 */
-.focus-examples {
-  padding: 20px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.focus-row {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 15px;
-  flex-wrap: wrap;
-}
-
-.focus-btn {
-  padding: 10px 15px;
-  border-radius: 4px;
-  font-size: 14px;
-  background-color: white;
-  color: #333;
-  border: 1px solid #ddd;
-  cursor: pointer;
-}
-
-.poor-focus:focus {
-  outline: none; /* 无焦点样式 */
-}
-
-.default-focus:focus {
-  /* 默认浏览器焦点样式 */
-}
-
-.custom-focus:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.5);
-  border-color: #4285f4;
-}
-
-.focus-hint {
-  font-size: 14px;
-  color: #666;
-  margin-top: 15px;
-  font-style: italic;
-}
-
-/* 排版示例 */
-.typography-examples {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.typography-card {
-  flex: 1;
-  min-width: 250px;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.typography-card h4 {
-  margin-top: 0;
-  margin-bottom: 15px;
-}
-
-.poor-typography {
-  background-color: #f5f5f5;
-}
-
-.poor-typography h4 {
-  font-family: 'Times New Roman', serif;
-  color: #777;
-  font-size: 16px;
-}
-
-.poor-typography p {
-  font-family: 'Times New Roman', serif;
-  font-size: 11px;
-  line-height: 1.2;
-  letter-spacing: -0.5px;
-  color: #777;
-}
-
-.good-typography {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.good-typography h4 {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: #333;
-  font-size: 18px;
-}
-
-.good-typography p {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  letter-spacing: 0;
-  color: #444;
-}
-
-/* 表单标签示例 */
-.form-examples {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-.form-card {
-  flex: 1;
-  min-width: 250px;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.form-card h4 {
-  margin-top: 0;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.form-row {
-  margin-bottom: 15px;
-}
-
-.poor-form input,
-.poor-form select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.good-form label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 500;
-  color: #333;
-}
-
-.good-form input,
-.good-form select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.good-form .hint-text {
-  font-size: 12px;
-  color: #666;
-  margin-top: 5px;
-}
-
-/* ARIA示例 */
-.aria-examples {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.aria-card {
-  flex: 1;
-  min-width: 250px;
-  background-color: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.code-example {
-  background-color: #272822;
-  padding: 15px;
-  overflow-x: auto;
-}
-
-.code-example pre {
-  margin: 0;
-}
-
-.code-example code {
-  color: #f8f8f2;
-  font-family: 'Fira Code', monospace;
-  font-size: 14px;
-}
-
-.aria-card p {
-  padding: 15px;
-  margin: 0;
-  color: #666;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.aria-card code {
-  background-color: #f0f0f0;
-  padding: 2px 4px;
-  border-radius: 3px;
-  font-family: 'Fira Code', monospace;
-  color: #e53935;
-  font-size: 13px;
-}
-
-/* 响应式调整 */
-@media (max-width: 768px) {
-  .contrast-examples,
-  .focus-row,
-  .typography-examples,
-  .form-examples,
-  .aria-examples {
-    flex-direction: column;
-  }
+      .contrast-examples {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
   
-  .contrast-card {
-    width: 100%;
-  }
-}
-</style> 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 语言切换功能
+      const container = document.querySelector('.a11y-container');
+      const langButtons = document.querySelectorAll('.lang-btn');
+      
+      // 设置默认语言为中文
+      container.classList.remove('en');
+      
+      // 语言按钮点击事件
+      langButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // 移除所有按钮的active类
+          langButtons.forEach(btn => btn.classList.remove('active'));
+          // 给当前点击的按钮添加active类
+          this.classList.add('active');
+          
+          // 设置语言
+          if (this.getAttribute('data-lang') === 'en') {
+            container.classList.add('en');
+          } else {
+            container.classList.remove('en');
+          }
+        });
+      });
+      
+      // 文本大小调整
+      const sizeButtons = document.querySelectorAll('.size-button');
+      const resizableText = document.querySelector('.resizable-text');
+      
+      sizeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const size = this.getAttribute('data-size');
+          resizableText.style.fontSize = `${size}em`;
+        });
+      });
+      
+      // 标签切换
+      const tabs = document.querySelectorAll('.tab');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          // 更新所有标签状态
+          tabs.forEach(t => {
+            t.setAttribute('aria-selected', 'false');
+          });
+          this.setAttribute('aria-selected', 'true');
+          
+          // 隐藏所有面板
+          const panels = document.querySelectorAll('.tab-panel');
+          panels.forEach(panel => {
+            panel.hidden = true;
+          });
+          
+          // 显示选中的面板
+          const panelId = this.getAttribute('aria-controls');
+          document.getElementById(panelId).hidden = false;
+        });
+      });
+    });
+  </script>
+</div> 

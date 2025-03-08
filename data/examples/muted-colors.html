@@ -1,25 +1,48 @@
 <!-- 低饱和度配色设计示例 -->
-<div class="muted-card">
+<div class="muted-card" data-lang="zh-en">
+  <div class="language-switch">
+    <button class="lang-btn active" data-lang="zh">中文</button>
+    <button class="lang-btn" data-lang="en">English</button>
+  </div>
+  
   <div class="card-header">
-    <h2>低饱和度配色</h2>
+    <h2>
+      <span data-zh="低饱和度配色">低饱和度配色</span>
+      <span data-en="Muted Colors">Muted Colors</span>
+    </h2>
     <span class="accent-dot"></span>
   </div>
-  <p class="description">温暖米白底色与深色文字形成舒适的阅读体验，橙色点缀增添活力。</p>
+  <p class="description">
+    <span data-zh="温暖米白底色与深色文字形成舒适的阅读体验，橙色点缀增添活力。">温暖米白底色与深色文字形成舒适的阅读体验，橙色点缀增添活力。</span>
+    <span data-en="Warm off-white background with dark text creates a comfortable reading experience, orange accents add energy.">Warm off-white background with dark text creates a comfortable reading experience, orange accents add energy.</span>
+  </p>
   <div class="features">
     <div class="feature-item">
       <span class="accent-icon">✦</span>
-      <p>高级质感</p>
+      <p>
+        <span data-zh="高级质感">高级质感</span>
+        <span data-en="Premium Feel">Premium Feel</span>
+      </p>
     </div>
     <div class="feature-item">
       <span class="accent-icon">✦</span>
-      <p>层次分明</p>
+      <p>
+        <span data-zh="层次分明">层次分明</span>
+        <span data-en="Clear Hierarchy">Clear Hierarchy</span>
+      </p>
     </div>
     <div class="feature-item">
       <span class="accent-icon">✦</span>
-      <p>视觉平衡</p>
+      <p>
+        <span data-zh="视觉平衡">视觉平衡</span>
+        <span data-en="Visual Balance">Visual Balance</span>
+      </p>
     </div>
   </div>
-  <button class="muted-btn">了解更多</button>
+  <button class="muted-btn">
+    <span data-zh="了解更多">了解更多</span>
+    <span data-en="Learn More">Learn More</span>
+  </button>
 </div>
 
 <style>
@@ -32,6 +55,48 @@ body {
   height: 100vh;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   color: #33302e; /* 深色文字基础色 */
+}
+
+/* 语言切换样式 */
+.language-switch {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.lang-btn {
+  background: none;
+  border: 1px solid #e8e5e1;
+  padding: 5px 10px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #5a5754;
+}
+
+.lang-btn.active {
+  background-color: #e8834b;
+  color: white;
+  border-color: #e8834b;
+}
+
+/* Handle language display */
+[data-lang="zh-en"] [data-zh],
+[data-lang="zh-en"] [data-en] {
+  display: none;
+}
+
+[data-lang="zh-en"] [data-zh] {
+  display: inline;
+}
+
+[data-lang="zh-en"].en [data-zh] {
+  display: none;
+}
+
+[data-lang="zh-en"].en [data-en] {
+  display: inline;
 }
 
 /* 卡片容器样式 */
@@ -114,4 +179,32 @@ body {
   background-color: #e8834b; /* 悬停时背景变为橙色 */
   color: #ffffff; /* 文字变白 */
 }
-</style> 
+</style>
+
+<script>
+// 语言切换功能
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.querySelector('.muted-card');
+  const langButtons = document.querySelectorAll('.lang-btn');
+  
+  // 设置默认语言为中文
+  container.classList.remove('en');
+  
+  // 语言按钮点击事件
+  langButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // 移除所有按钮的active类
+      langButtons.forEach(btn => btn.classList.remove('active'));
+      // 给当前点击的按钮添加active类
+      this.classList.add('active');
+      
+      // 设置语言
+      if (this.getAttribute('data-lang') === 'en') {
+        container.classList.add('en');
+      } else {
+        container.classList.remove('en');
+      }
+    });
+  });
+});
+</script> 

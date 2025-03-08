@@ -1,26 +1,58 @@
-<div class="frosted-container">
+<div class="frosted-container" data-lang="zh-en">
+  <div class="language-switch">
+    <button class="lang-btn active" data-lang="zh">中文</button>
+    <button class="lang-btn" data-lang="en">English</button>
+  </div>
+  
   <div class="bg-pattern"></div>
   
   <div class="frosted-card">
-    <h2>毛玻璃效果</h2>
-    <p>毛玻璃效果（Frosted Glass）创造出半透明模糊的视觉体验，常用于创建现代、简约的界面元素。</p>
+    <h2>
+      <span data-zh="毛玻璃效果">毛玻璃效果</span>
+      <span data-en="Frosted Glass Effect">Frosted Glass Effect</span>
+    </h2>
+    <p>
+      <span data-zh="毛玻璃效果（Frosted Glass）创造出半透明模糊的视觉体验，常用于创建现代、简约的界面元素。">毛玻璃效果（Frosted Glass）创造出半透明模糊的视觉体验，常用于创建现代、简约的界面元素。</span>
+      <span data-en="The Frosted Glass effect creates a semi-transparent blurred visual experience, commonly used to create modern, minimalist interface elements.">The Frosted Glass effect creates a semi-transparent blurred visual experience, commonly used to create modern, minimalist interface elements.</span>
+    </p>
     <div class="buttons">
-      <button class="frosted-button primary">主要按钮</button>
-      <button class="frosted-button secondary">次要按钮</button>
+      <button class="frosted-button primary">
+        <span data-zh="主要按钮">主要按钮</span>
+        <span data-en="Primary Button">Primary Button</span>
+      </button>
+      <button class="frosted-button secondary">
+        <span data-zh="次要按钮">次要按钮</span>
+        <span data-en="Secondary Button">Secondary Button</span>
+      </button>
     </div>
   </div>
   
   <div class="frosted-navbar">
-    <div class="nav-item active">首页</div>
-    <div class="nav-item">关于</div>
-    <div class="nav-item">产品</div>
-    <div class="nav-item">联系</div>
+    <div class="nav-item active">
+      <span data-zh="首页">首页</span>
+      <span data-en="Home">Home</span>
+    </div>
+    <div class="nav-item">
+      <span data-zh="关于">关于</span>
+      <span data-en="About">About</span>
+    </div>
+    <div class="nav-item">
+      <span data-zh="产品">产品</span>
+      <span data-en="Products">Products</span>
+    </div>
+    <div class="nav-item">
+      <span data-zh="联系">联系</span>
+      <span data-en="Contact">Contact</span>
+    </div>
   </div>
   
   <div class="frosted-floating-panel">
     <div class="notification">
       <div class="icon">✉️</div>
-      <div class="text">您有一条新消息</div>
+      <div class="text">
+        <span data-zh="您有一条新消息">您有一条新消息</span>
+        <span data-en="You have a new message">You have a new message</span>
+      </div>
     </div>
   </div>
 </div>
@@ -35,6 +67,51 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.language-switch {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  z-index: 100;
+}
+
+.lang-btn {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 5px 10px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.lang-btn.active {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Handle language display */
+[data-lang="zh-en"] [data-zh],
+[data-lang="zh-en"] [data-en] {
+  display: none;
+}
+
+[data-lang="zh-en"] [data-zh] {
+  display: inline;
+}
+
+[data-lang="zh-en"].en [data-zh] {
+  display: none;
+}
+
+[data-lang="zh-en"].en [data-en] {
+  display: inline;
 }
 
 /* 背景图案 */
@@ -192,4 +269,32 @@
     margin: 5px;
   }
 }
-</style> 
+</style>
+
+<script>
+// 语言切换功能
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.querySelector('.frosted-container');
+  const langButtons = document.querySelectorAll('.lang-btn');
+  
+  // 设置默认语言为中文
+  container.classList.remove('en');
+  
+  // 语言按钮点击事件
+  langButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // 移除所有按钮的active类
+      langButtons.forEach(btn => btn.classList.remove('active'));
+      // 给当前点击的按钮添加active类
+      this.classList.add('active');
+      
+      // 设置语言
+      if (this.getAttribute('data-lang') === 'en') {
+        container.classList.add('en');
+      } else {
+        container.classList.remove('en');
+      }
+    });
+  });
+});
+</script> 

@@ -1,15 +1,34 @@
 <!-- 动画展示容器，包含5种不同的CSS动画效果 -->
-<div class="animation-demo">
-  <!-- 淡入淡出动画效果 -->
-  <div class="box fade">Fade</div>
-  <!-- 水平移动效果 -->
-  <div class="box slide">Slide</div>
-  <!-- 旋转效果 -->
-  <div class="box rotate">Rotate</div>
-  <!-- 缩放效果 -->
-  <div class="box scale">Scale</div>
-  <!-- 弹跳效果 -->
-  <div class="box bounce">Bounce</div>
+<div class="animation-demo" data-lang="zh-en">
+  <!-- 添加更明显的语言切换按钮 -->
+  <div class="language-switch">
+    <button id="langToggle" class="lang-btn">English / 英文</button>
+  </div>
+  <h2 data-zh="CSS动画效果" data-en="CSS Animation Effects"></h2>
+  <p data-zh="悬停在每个方块上以查看动画" data-en="Hover over each box to see the animation"></p>
+  
+  <div class="animation-container">
+    <!-- 淡入淡出动画效果 -->
+    <div class="box fade">
+      <span data-zh="淡入淡出" data-en="Fade"></span>
+    </div>
+    <!-- 水平移动效果 -->
+    <div class="box slide">
+      <span data-zh="滑动" data-en="Slide"></span>
+    </div>
+    <!-- 旋转效果 -->
+    <div class="box rotate">
+      <span data-zh="旋转" data-en="Rotate"></span>
+    </div>
+    <!-- 缩放效果 -->
+    <div class="box scale">
+      <span data-zh="缩放" data-en="Scale"></span>
+    </div>
+    <!-- 弹跳效果 -->
+    <div class="box bounce">
+      <span data-zh="弹跳" data-en="Bounce"></span>
+    </div>
+  </div>
 </div>
 
 <style>
@@ -21,10 +40,36 @@ body {
   height: 100vh; /* 占满视口高度 */
   background-color: #f5f5f5; /* 浅灰色背景 */
   font-family: 'Arial', sans-serif; /* 无衬线字体 */
+  margin: 0;
+  padding: 0;
 }
 
 /* 动画容器样式 */
 .animation-demo {
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.animation-demo h2 {
+  text-align: center;
+  color: #333;
+  margin-top: 10px;
+}
+
+.animation-demo p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.animation-container {
   display: flex;
   flex-wrap: wrap; /* 允许元素换行 */
   gap: 20px; /* 元素之间的间距 */
@@ -104,4 +149,109 @@ body {
   40% { transform: translateY(-30px); } /* 向上弹跳30像素 */
   60% { transform: translateY(-15px); } /* 向上弹跳15像素 */
 }
-</style> 
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .animation-container {
+    gap: 15px;
+  }
+  
+  .box {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .box {
+    width: 80px;
+    height: 80px;
+    font-size: 0.9rem;
+  }
+}
+
+/* 改进的语言切换按钮样式 */
+.language-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+.lang-btn {
+  background-color: #4a6cf7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(74, 108, 247, 0.3);
+}
+
+.lang-btn:hover {
+  background-color: #3558e6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 108, 247, 0.5);
+}
+</style>
+
+<!-- 直接执行的语言切换JavaScript代码 -->
+<script>
+// 立即执行初始化
+(function() {
+  // 获取语言切换按钮
+  const langToggle = document.getElementById('langToggle');
+  
+  // 确保元素存在
+  if (!langToggle) {
+    console.error('Language toggle button not found!');
+    return;
+  }
+  
+  console.log('Language switch initialized');
+  
+  // 设置初始语言为中文
+  let currentLang = 'zh';
+  
+  // 立即应用当前语言
+  applyLanguage(currentLang);
+  
+  // 添加按钮点击事件
+  langToggle.addEventListener('click', function() {
+    // 切换语言
+    currentLang = currentLang === 'zh' ? 'en' : 'zh';
+    
+    // 更新按钮文本
+    langToggle.textContent = currentLang === 'zh' ? 'English / 英文' : '中文 / Chinese';
+    
+    // 应用新语言
+    applyLanguage(currentLang);
+    
+    // 添加反馈
+    console.log('Language switched to: ' + currentLang);
+  });
+  
+  // 应用语言到所有元素
+  function applyLanguage(lang) {
+    // 找到所有带有data-zh和data-en属性的元素
+    const elements = document.querySelectorAll('[data-zh], [data-en]');
+    
+    elements.forEach(function(element) {
+      // 获取当前语言的文本
+      const text = element.getAttribute(`data-${lang}`);
+      if (text) {
+        // 如果元素是输入框或文本域，设置其value
+        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+          element.value = text;
+        } else {
+          // 否则设置元素内容
+          element.textContent = text;
+        }
+      }
+    });
+  }
+})();
+</script> 

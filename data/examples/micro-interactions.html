@@ -1,252 +1,538 @@
-<div class="micro-container">
-  <h2>微交互设计</h2>
-  <p>微交互能增强用户体验，给予即时反馈。请尝试与下方元素互动。</p>
+<div class="micro-interactions-container" data-lang="zh-en">
+  <div class="language-switch">
+    <button class="lang-btn active" data-lang="zh">中文</button>
+    <button class="lang-btn" data-lang="en">English</button>
+  </div>
   
-  <div class="micro-elements">
-    <button class="micro-button">点击我</button>
-    
-    <label class="toggle">
-      <input type="checkbox">
-      <span class="toggle-slider"></span>
-    </label>
-    
-    <div class="heart-container">
-      <input type="checkbox" id="heart">
-      <label for="heart" class="heart-label">
-        <svg viewBox="0 0 24 24" class="heart-svg">
-          <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
-        </svg>
-      </label>
+  <h2>
+    <span data-zh="微交互设计">微交互设计</span>
+    <span data-en="Micro Interactions">Micro Interactions</span>
+  </h2>
+  <p>
+    <span data-zh="细微的交互动效可以增强用户体验和界面反馈">细微的交互动效可以增强用户体验和界面反馈</span>
+    <span data-en="Subtle interaction animations enhance user experience and interface feedback">Subtle interaction animations enhance user experience and interface feedback</span>
+  </p>
+  
+  <div class="interactions-grid">
+    <div class="interaction-card">
+      <h3>
+        <span data-zh="点赞按钮">点赞按钮</span>
+        <span data-en="Like Button">Like Button</span>
+      </h3>
+      <p>
+        <span data-zh="点击时产生愉悦的动画效果">点击时产生愉悦的动画效果</span>
+        <span data-en="Creates a satisfying animation effect when clicked">Creates a satisfying animation effect when clicked</span>
+      </p>
+      <div class="interaction-demo like-button-demo">
+        <button class="like-button">
+          <svg class="heart-icon" viewBox="0 0 32 32">
+            <path d="M16,28.261c0,0-14-7.926-14-17.046c0-9.356,13.159-10.399,14-0.454c1.011-9.938,14-8.903,14,0.454 C30,20.335,16,28.261,16,28.261z"/>
+          </svg>
+          <span class="like-count">0</span>
+        </button>
+      </div>
     </div>
     
-    <div class="notification-bell">
-      <svg viewBox="0 0 24 24" class="bell-svg">
-        <path d="M12,22A2,2 0 0,0 14,20H10A2,2 0 0,0 12,22M18,16V11C18,7.93 16.36,5.36 13.5,4.68V4A1.5,1.5 0 0,0 12,2.5A1.5,1.5 0 0,0 10.5,4V4.68C7.63,5.36 6,7.92 6,11V16L4,18V19H20V18L18,16Z"/>
-      </svg>
-      <span class="notification-badge">3</span>
+    <div class="interaction-card">
+      <h3>
+        <span data-zh="加载指示器">加载指示器</span>
+        <span data-en="Loading Indicator">Loading Indicator</span>
+      </h3>
+      <p>
+        <span data-zh="使等待更具吸引力的微动画">使等待更具吸引力的微动画</span>
+        <span data-en="Micro-animation that makes waiting more engaging">Micro-animation that makes waiting more engaging</span>
+      </p>
+      <div class="interaction-demo loader-demo">
+        <div class="loader">
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+        </div>
+        <button class="loader-trigger">
+          <span data-zh="显示加载">显示加载</span>
+          <span data-en="Show Loading">Show Loading</span>
+        </button>
+      </div>
+    </div>
+    
+    <div class="interaction-card">
+      <h3>
+        <span data-zh="开关按钮">开关按钮</span>
+        <span data-en="Toggle Switch">Toggle Switch</span>
+      </h3>
+      <p>
+        <span data-zh="平滑过渡的状态变化">平滑过渡的状态变化</span>
+        <span data-en="Smoothly transitions between states">Smoothly transitions between states</span>
+      </p>
+      <div class="interaction-demo toggle-demo">
+        <label class="toggle">
+          <input type="checkbox" class="toggle-input">
+          <div class="toggle-slider"></div>
+        </label>
+      </div>
+    </div>
+    
+    <div class="interaction-card">
+      <h3>
+        <span data-zh="输入框焦点">输入框焦点</span>
+        <span data-en="Input Focus">Input Focus</span>
+      </h3>
+      <p>
+        <span data-zh="与用户交互时提供视觉反馈">与用户交互时提供视觉反馈</span>
+        <span data-en="Provides visual feedback when user interacts">Provides visual feedback when user interacts</span>
+      </p>
+      <div class="interaction-demo input-demo">
+        <div class="input-wrapper">
+          <input type="text" class="focus-input" placeholder="">
+          <label class="input-label">
+            <span data-zh="您的姓名">您的姓名</span>
+            <span data-en="Your Name">Your Name</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="interaction-card">
+      <h3>
+        <span data-zh="脉动按钮">脉动按钮</span>
+        <span data-en="Pulse Button">Pulse Button</span>
+      </h3>
+      <p>
+        <span data-zh="吸引注意力的脉动效果">吸引注意力的脉动效果</span>
+        <span data-en="Pulsing effect to attract attention">Pulsing effect to attract attention</span>
+      </p>
+      <div class="interaction-demo pulse-demo">
+        <button class="pulse-button">
+          <span data-zh="点击我">点击我</span>
+          <span data-en="Click Me">Click Me</span>
+        </button>
+      </div>
+    </div>
+    
+    <div class="interaction-card">
+      <h3>
+        <span data-zh="工具提示">工具提示</span>
+        <span data-en="Tooltip">Tooltip</span>
+      </h3>
+      <p>
+        <span data-zh="悬停时显示附加信息">悬停时显示附加信息</span>
+        <span data-en="Shows additional information on hover">Shows additional information on hover</span>
+      </p>
+      <div class="interaction-demo tooltip-demo">
+        <button class="tooltip-trigger">
+          <span data-zh="悬停在我上面">悬停在我上面</span>
+          <span data-en="Hover Over Me">Hover Over Me</span>
+          <span class="tooltip-text">
+            <span data-zh="这是工具提示内容">这是工具提示内容</span>
+            <span data-en="This is tooltip content">This is tooltip content</span>
+          </span>
+        </button>
+      </div>
     </div>
   </div>
-</div>
-
-<style>
-.micro-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 30px;
-  background-color: #f8f9fa;
-  border-radius: 10px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
-}
-
-.micro-container h2 {
-  margin-top: 0;
-  color: #333;
-}
-
-.micro-container p {
-  color: #666;
-  margin-bottom: 30px;
-}
-
-.micro-elements {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-/* 按钮微交互 */
-.micro-button {
-  padding: 12px 24px;
-  background-color: #4285f4;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.micro-button:hover {
-  background-color: #3367d6;
-}
-
-.micro-button:active {
-  transform: scale(0.96);
-}
-
-.micro-button::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 5px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.5);
-  opacity: 0;
-  border-radius: 100%;
-  transform: scale(1, 1) translate(-50%);
-  transform-origin: 50% 50%;
-}
-
-.micro-button:focus:not(:active)::after {
-  animation: ripple 0.6s ease-out;
-}
-
-@keyframes ripple {
-  0% {
-    transform: scale(0, 0);
-    opacity: 0.5;
-  }
-  100% {
-    transform: scale(20, 20);
-    opacity: 0;
-  }
-}
-
-/* 开关微交互 */
-.toggle {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.toggle input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.toggle-slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: .4s;
-  border-radius: 34px;
-}
-
-.toggle-slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: .4s;
-  border-radius: 50%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.toggle input:checked + .toggle-slider {
-  background-color: #34a853;
-}
-
-.toggle input:checked + .toggle-slider:before {
-  transform: translateX(26px);
-}
-
-/* 喜欢按钮微交互 */
-.heart-container {
-  position: relative;
-  width: 40px;
-  height: 40px;
-}
-
-#heart {
-  display: none;
-}
-
-.heart-label {
-  cursor: pointer;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.heart-svg {
-  width: 100%;
-  height: 100%;
-  fill: #ddd;
-  stroke: #333;
-  stroke-width: 1;
-  transition: all 0.35s;
-}
-
-#heart:checked + .heart-label .heart-svg {
-  fill: #f44336;
-  stroke: #f44336;
-  animation: heartBeat 0.4s;
-}
-
-@keyframes heartBeat {
-  0% {
-    transform: scale(1);
-  }
-  25% {
-    transform: scale(1.1);
-  }
-  40% {
-    transform: scale(0.9);
-  }
-  60% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* 通知铃铛微交互 */
-.notification-bell {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
-
-.bell-svg {
-  width: 100%;
-  height: 100%;
-  fill: #666;
-  transition: all 0.3s;
-}
-
-.notification-badge {
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  background-color: #ea4335;
-  color: white;
-  border-radius: 50%;
-  font-size: 12px;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
-
-.notification-bell:hover .bell-svg {
-  fill: #333;
-  animation: bellShake 0.5s;
-}
-
-@keyframes bellShake {
-  0% { transform: rotate(0); }
-  20% { transform: rotate(8deg); }
-  40% { transform: rotate(-8deg); }
-  60% { transform: rotate(4deg); }
-  80% { transform: rotate(-4deg); }
-  100% { transform: rotate(0); }
-}
-</style> 
+  
+  <style>
+    .language-switch {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+    
+    .lang-btn {
+      background: none;
+      border: 1px solid #ddd;
+      padding: 5px 10px;
+      margin-left: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    
+    .lang-btn.active {
+      background-color: #4285f4;
+      color: white;
+      border-color: #4285f4;
+    }
+    
+    /* Handle language display */
+    [data-lang="zh-en"] [data-zh],
+    [data-lang="zh-en"] [data-en] {
+      display: none;
+    }
+    
+    [data-lang="zh-en"] [data-zh] {
+      display: inline;
+    }
+    
+    [data-lang="zh-en"].en [data-zh] {
+      display: none;
+    }
+    
+    [data-lang="zh-en"].en [data-en] {
+      display: inline;
+    }
+    
+    .micro-interactions-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+    }
+    
+    .micro-interactions-container h2 {
+      text-align: center;
+      margin-top: 0;
+      color: #333;
+    }
+    
+    .micro-interactions-container p {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    
+    .interactions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    
+    .interaction-card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .interaction-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    
+    .interaction-card p {
+      color: #666;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+    
+    .interaction-demo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100px;
+    }
+    
+    /* 点赞按钮交互 */
+    .like-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      transition: transform 0.1s;
+    }
+    
+    .heart-icon {
+      width: 32px;
+      height: 32px;
+      fill: #ddd;
+      stroke: #333;
+      stroke-width: 1;
+      transition: fill 0.3s, transform 0.3s;
+    }
+    
+    .like-button.liked .heart-icon {
+      fill: #ff5252;
+      stroke: #ff5252;
+      animation: heart-pulse 0.4s ease;
+    }
+    
+    @keyframes heart-pulse {
+      0% { transform: scale(1); }
+      15% { transform: scale(1.3); }
+      30% { transform: scale(0.95); }
+      45% { transform: scale(1.2); }
+      60% { transform: scale(1); }
+    }
+    
+    /* 加载指示器交互 */
+    .loader {
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .loader.active {
+      display: flex;
+    }
+    
+    .loader-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #4285f4;
+      border-radius: 50%;
+      margin: 0 5px;
+      animation: loader-bounce 1.4s infinite ease-in-out both;
+    }
+    
+    .loader-dot:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+    
+    .loader-dot:nth-child(2) {
+      animation-delay: -0.16s;
+    }
+    
+    @keyframes loader-bounce {
+      0%, 80%, 100% { transform: scale(0); }
+      40% { transform: scale(1); }
+    }
+    
+    .loader-trigger {
+      margin-left: 20px;
+      padding: 8px 16px;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .loader-trigger:hover {
+      background-color: #3367d6;
+    }
+    
+    /* 开关按钮交互 */
+    .toggle {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+      cursor: pointer;
+    }
+    
+    .toggle-input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .toggle-slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      border-radius: 34px;
+      transition: background-color 0.3s;
+    }
+    
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+    
+    .toggle-input:checked + .toggle-slider {
+      background-color: #4285f4;
+    }
+    
+    .toggle-input:checked + .toggle-slider:before {
+      transform: translateX(26px);
+    }
+    
+    /* 输入框焦点交互 */
+    .input-wrapper {
+      position: relative;
+      width: 200px;
+    }
+    
+    .focus-input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    
+    .focus-input:focus {
+      outline: none;
+      border-color: #4285f4;
+      box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+    }
+    
+    .input-label {
+      position: absolute;
+      top: 12px;
+      left: 10px;
+      font-size: 16px;
+      color: #999;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+    
+    .focus-input:focus ~ .input-label,
+    .focus-input:not(:placeholder-shown) ~ .input-label {
+      top: -8px;
+      left: 5px;
+      font-size: 12px;
+      color: #4285f4;
+      background-color: white;
+      padding: 0 5px;
+    }
+    
+    /* 脉动按钮交互 */
+    .pulse-button {
+      position: relative;
+      padding: 12px 24px;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    
+    .pulse-button:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      transform: scale(0);
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(0); opacity: 0.5; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+    
+    /* 工具提示交互 */
+    .tooltip-trigger {
+      position: relative;
+      padding: 10px 20px;
+      background-color: #f0f0f0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .tooltip-text {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    
+    .tooltip-text:after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #333 transparent transparent transparent;
+    }
+    
+    .tooltip-trigger:hover .tooltip-text {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 语言切换功能
+      const container = document.querySelector('.micro-interactions-container');
+      const langButtons = document.querySelectorAll('.lang-btn');
+      
+      // 设置默认语言为中文
+      container.classList.remove('en');
+      
+      // 语言按钮点击事件
+      langButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // 移除所有按钮的active类
+          langButtons.forEach(btn => btn.classList.remove('active'));
+          // 给当前点击的按钮添加active类
+          this.classList.add('active');
+          
+          // 设置语言
+          if (this.getAttribute('data-lang') === 'en') {
+            container.classList.add('en');
+          } else {
+            container.classList.remove('en');
+          }
+        });
+      });
+      
+      // 点赞按钮交互
+      const likeButton = document.querySelector('.like-button');
+      const likeCount = document.querySelector('.like-count');
+      let count = 0;
+      
+      likeButton.addEventListener('click', function() {
+        this.classList.toggle('liked');
+        if (this.classList.contains('liked')) {
+          count++;
+        } else {
+          count--;
+        }
+        likeCount.textContent = count;
+      });
+      
+      // 加载指示器交互
+      const loaderTrigger = document.querySelector('.loader-trigger');
+      const loader = document.querySelector('.loader');
+      
+      loaderTrigger.addEventListener('click', function() {
+        loader.classList.add('active');
+        this.disabled = true;
+        
+        setTimeout(() => {
+          loader.classList.remove('active');
+          this.disabled = false;
+        }, 3000);
+      });
+      
+      // 脉动按钮交互
+      const pulseButton = document.querySelector('.pulse-button');
+      
+      pulseButton.addEventListener('click', function() {
+        this.classList.add('clicked');
+        setTimeout(() => {
+          this.classList.remove('clicked');
+        }, 500);
+      });
+    });
+  </script>
+</div> 

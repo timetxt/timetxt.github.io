@@ -1,18 +1,23 @@
-<div class="theme-container">
+<div class="theme-container" data-lang="zh-en">
+  <div class="language-switch">
+    <button class="lang-btn active" data-lang="zh">中文</button>
+    <button class="lang-btn" data-lang="en">English</button>
+  </div>
+  
   <div class="theme-switch-wrapper">
     <label class="theme-switch" for="checkbox">
       <input type="checkbox" id="checkbox" />
       <div class="slider round"></div>
     </label>
-    <span class="theme-label">切换主题</span>
+    <span class="theme-label"><span data-zh="切换主题">切换主题</span><span data-en="Toggle Theme">Toggle Theme</span></span>
   </div>
   
   <div class="theme-content">
-    <h2>深色模式与浅色模式</h2>
-    <p>这是一个演示深色模式与浅色模式切换的设计。点击上方开关来切换主题。</p>
+    <h2><span data-zh="深色模式与浅色模式">深色模式与浅色模式</span><span data-en="Dark Mode and Light Mode">Dark Mode and Light Mode</span></h2>
+    <p><span data-zh="这是一个演示深色模式与浅色模式切换的设计。点击上方开关来切换主题。">这是一个演示深色模式与浅色模式切换的设计。点击上方开关来切换主题。</span><span data-en="This is a demonstration of dark mode and light mode design. Click the toggle switch above to change the theme.">This is a demonstration of dark mode and light mode design. Click the toggle switch above to change the theme.</span></p>
     <div class="button-container">
-      <button class="theme-button primary">主要按钮</button>
-      <button class="theme-button secondary">次要按钮</button>
+      <button class="theme-button primary"><span data-zh="主要按钮">主要按钮</span><span data-en="Primary Button">Primary Button</span></button>
+      <button class="theme-button secondary"><span data-zh="次要按钮">次要按钮</span><span data-en="Secondary Button">Secondary Button</span></button>
     </div>
   </div>
 </div>
@@ -39,6 +44,56 @@
   --button-primary: var(--light-button-primary);
   --button-secondary: var(--light-button-secondary);
   --border: var(--light-border);
+}
+
+.language-switch {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.lang-btn {
+  background: none;
+  border: 1px solid var(--border);
+  padding: 5px 10px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.lang-btn.active {
+  background-color: var(--button-primary);
+  color: white;
+  border-color: var(--button-primary);
+}
+
+/* Critical language switching styles */
+[data-lang="zh-en"] [data-zh] {
+  display: block !important;
+}
+
+[data-lang="zh-en"] [data-en] {
+  display: none !important;
+}
+
+[data-lang="zh-en"].en [data-zh] {
+  display: none !important;
+}
+
+[data-lang="zh-en"].en [data-en] {
+  display: block !important;
+}
+
+/* Adjust for inline elements */
+h1 [data-zh], h1 [data-en],
+h2 [data-zh], h2 [data-en],
+h3 [data-zh], h3 [data-en],
+p [data-zh], p [data-en],
+span [data-zh], span [data-en],
+button [data-zh], button [data-en] {
+  display: inline !important;
 }
 
 .theme-container {
@@ -149,7 +204,7 @@ input:checked + .slider:before {
   border: 1px solid var(--border);
 }
 
-/* 添加dark-mode类样式定义 */
+/* Dark mode styles */
 .theme-container.dark-mode {
   --bg: var(--dark-bg);
   --text: var(--dark-text);
@@ -161,7 +216,42 @@ input:checked + .slider:before {
 </style>
 
 <script>
-document.getElementById('checkbox').addEventListener('change', function() {
-  document.querySelector('.theme-container').classList.toggle('dark-mode');
+// Initialize language switching immediately
+(function() {
+  // Set default language to Chinese
+  var container = document.querySelector('.theme-container');
+  if (container) {
+    container.classList.remove('en');
+  }
+})();
+
+// Wait for the DOM to be fully loaded for the rest
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.querySelector('.theme-container');
+  const langButtons = document.querySelectorAll('.lang-btn');
+  
+  // Language button click events
+  langButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      console.log('Language button clicked:', this.getAttribute('data-lang'));
+      
+      // Remove active class from all buttons
+      langButtons.forEach(btn => btn.classList.remove('active'));
+      // Add active class to clicked button
+      this.classList.add('active');
+      
+      // Set language
+      if (this.getAttribute('data-lang') === 'en') {
+        container.classList.add('en');
+      } else {
+        container.classList.remove('en');
+      }
+    });
+  });
+  
+  // Theme switching
+  document.getElementById('checkbox').addEventListener('change', function() {
+    container.classList.toggle('dark-mode');
+  });
 });
 </script> 

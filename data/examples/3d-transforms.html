@@ -1,41 +1,42 @@
-<div class="transform-container">
-  <h2>3D变换效果</h2>
-  <p>使用CSS 3D变换创建具有深度感的界面元素</p>
+<div class="transform-container" data-lang="zh-en">
+  <div class="language-switch">
+    <button class="lang-btn active" data-lang="zh">中文</button>
+    <button class="lang-btn" data-lang="en">English</button>
+  </div>
+
+  <h2><span data-zh="3D变换效果">3D变换效果</span><span data-en="3D Transform Effects">3D Transform Effects</span></h2>
+  <p><span data-zh="使用CSS 3D变换创建具有深度感的界面元素">使用CSS 3D变换创建具有深度感的界面元素</span><span data-en="Create interface elements with depth using CSS 3D transforms">Create interface elements with depth using CSS 3D transforms</span></p>
   
   <div class="transforms-showcase">
     <div class="card flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <h3>翻转卡片</h3>
-          <p>悬停查看背面</p>
+          <h3><span data-zh="翻转卡片">翻转卡片</span><span data-en="Flip Card">Flip Card</span></h3>
+          <p><span data-zh="悬停查看背面">悬停查看背面</span><span data-en="Hover to see back">Hover to see back</span></p>
         </div>
         <div class="flip-card-back">
-          <h3>卡片背面</h3>
-          <p>3D翻转效果</p>
+          <h3><span data-zh="卡片背面">卡片背面</span><span data-en="Card Back">Card Back</span></h3>
+          <p><span data-zh="3D翻转效果">3D翻转效果</span><span data-en="3D Flip Effect">3D Flip Effect</span></p>
         </div>
       </div>
     </div>
     
     <div class="card rotate-card">
-      <h3>旋转卡片</h3>
-      <p>悬停查看旋转</p>
+      <h3><span data-zh="旋转卡片">旋转卡片</span><span data-en="Rotate Card">Rotate Card</span></h3>
+      <p><span data-zh="悬停查看旋转">悬停查看旋转</span><span data-en="Hover to see rotation">Hover to see rotation</span></p>
     </div>
     
     <div class="card perspective-card">
-      <div class="perspective-content">
-        <h3>透视效果</h3>
-        <p>悬停体验深度感</p>
+      <div class="perspective-box">
+        <h3><span data-zh="透视效果">透视效果</span><span data-en="Perspective Effect">Perspective Effect</span></h3>
+        <p><span data-zh="增加深度感">增加深度感</span><span data-en="Adds depth">Adds depth</span></p>
       </div>
     </div>
     
-    <div class="card cube-container">
-      <div class="cube">
-        <div class="face front">前</div>
-        <div class="face back">后</div>
-        <div class="face right">右</div>
-        <div class="face left">左</div>
-        <div class="face top">上</div>
-        <div class="face bottom">下</div>
+    <div class="card translate-card">
+      <div class="translate-box">
+        <h3><span data-zh="3D位移">3D位移</span><span data-en="3D Translation">3D Translation</span></h3>
+        <p><span data-zh="Z轴移动">Z轴移动</span><span data-en="Z-axis movement">Z-axis movement</span></p>
       </div>
     </div>
   </div>
@@ -43,50 +44,71 @@
 
 <style>
 .transform-container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 30px;
-  background-color: #f8f9fa;
-  border-radius: 10px;
+  background-color: #f5f5f5;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
 }
 
 .transform-container h2 {
-  margin-top: 0;
-  color: #333;
   text-align: center;
+  color: #333;
+  margin-top: 0;
 }
 
-.transform-container p {
-  color: #666;
+.transform-container > p {
   text-align: center;
-  margin-bottom: 30px;
+  color: #666;
+  margin-bottom: 40px;
 }
 
 .transforms-showcase {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
 }
 
 .card {
-  height: 200px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  overflow: hidden;
+  height: 160px;
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.5s;
 }
 
-/* 翻转卡片 */
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #777;
+  text-align: center;
+}
+
+/* Flip Card */
 .flip-card {
-  perspective: 1000px;
   background-color: transparent;
+  perspective: 1000px;
   box-shadow: none;
+  padding: 0;
 }
 
 .flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
+  text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
 }
@@ -99,14 +121,16 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-sizing: border-box;
 }
 
 .flip-card-front {
@@ -120,105 +144,161 @@
   transform: rotateY(180deg);
 }
 
-/* 旋转卡片 */
+/* Rotate Card */
 .rotate-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #ea4335;
-  color: white;
+  background-color: #fbbc05;
   transition: transform 0.5s;
 }
 
 .rotate-card:hover {
-  transform: rotate3d(1, 1, 0, 15deg);
+  transform: rotate(15deg);
 }
 
-/* 透视卡片 */
+.rotate-card h3, .rotate-card p {
+  color: #333;
+}
+
+/* Perspective Card */
 .perspective-card {
-  perspective: 800px;
-  background-color: #fbbc05;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  perspective: 500px;
+  background: transparent;
+  box-shadow: none;
 }
 
-.perspective-content {
+.perspective-box {
   width: 100%;
   height: 100%;
+  background-color: #ea4335;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 8px;
   transition: transform 0.5s;
-  transform-style: preserve-3d;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.perspective-card:hover .perspective-content {
-  transform: translateZ(50px);
+.perspective-card:hover .perspective-box {
+  transform: rotateX(30deg);
 }
 
-/* 3D立方体 */
-.cube-container {
-  perspective: 800px;
-  background-color: transparent;
+/* Translate Card */
+.translate-card {
+  perspective: 1000px;
+  background: transparent;
   box-shadow: none;
 }
 
-.cube {
-  width: 100px;
-  height: 100px;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 1s;
-  margin: 50px auto;
-}
-
-.cube-container:hover .cube {
-  transform: rotateX(180deg) rotateY(180deg);
-}
-
-.face {
-  position: absolute;
-  width: 100px;
-  height: 100px;
+.translate-box {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #42a5f5, #478ed1);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-weight: bold;
+  border-radius: 8px;
+  transition: transform 0.5s;
   color: white;
-  border: 2px solid white;
-  opacity: 0.8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.front {
-  background-color: #4285f4;
+.translate-card:hover .translate-box {
   transform: translateZ(50px);
 }
 
-.back {
-  background-color: #ea4335;
-  transform: rotateY(180deg) translateZ(50px);
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .transforms-showcase {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+  }
+  
+  .card {
+    height: 140px;
+  }
 }
 
-.right {
-  background-color: #fbbc05;
-  transform: rotateY(90deg) translateZ(50px);
+.language-switch {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
 }
 
-.left {
-  background-color: #34a853;
-  transform: rotateY(-90deg) translateZ(50px);
+.lang-btn {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
-.top {
-  background-color: #673ab7;
-  transform: rotateX(90deg) translateZ(50px);
+.lang-btn.active {
+  background-color: #4285f4;
+  color: white;
+  border-color: #4285f4;
 }
 
-.bottom {
-  background-color: #ff6d00;
-  transform: rotateX(-90deg) translateZ(50px);
+/* Language switching styles - Critical CSS */
+[data-lang="zh-en"] [data-zh] {
+  display: block !important;
 }
-</style> 
+
+[data-lang="zh-en"] [data-en] {
+  display: none !important;
+}
+
+[data-lang="zh-en"].en [data-zh] {
+  display: none !important;
+}
+
+[data-lang="zh-en"].en [data-en] {
+  display: block !important;
+}
+
+/* Adjust for inline elements */
+h1 [data-zh], h1 [data-en],
+h2 [data-zh], h2 [data-en],
+h3 [data-zh], h3 [data-en],
+p [data-zh], p [data-en],
+span [data-zh], span [data-en],
+button [data-zh], button [data-en] {
+  display: inline !important;
+}
+</style>
+
+<script>
+// Initialize language switching as soon as possible
+(function() {
+  // Set default language to Chinese
+  document.querySelector('.transform-container').classList.remove('en');
+  
+  // Add event listeners after document is loaded
+  window.addEventListener('DOMContentLoaded', function() {
+    const container = document.querySelector('.transform-container');
+    const langButtons = document.querySelectorAll('.lang-btn');
+    
+    // Language button click event
+    langButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        console.log('Language button clicked:', this.getAttribute('data-lang'));
+        
+        // Remove active class from all buttons
+        langButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        this.classList.add('active');
+        
+        // Set language
+        if (this.getAttribute('data-lang') === 'en') {
+          container.classList.add('en');
+        } else {
+          container.classList.remove('en');
+        }
+      });
+    });
+  });
+})();
+</script> 

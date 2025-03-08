@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>新拟物化设计示例</title>
+    <title>Neumorphism Design</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -15,6 +15,66 @@
             min-height: 100vh;
             margin: 0;
             padding: 20px;
+        }
+        
+        .language-switch {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .lang-btn {
+            background: #e0e5ec;
+            border: none;
+            padding: 8px 16px;
+            margin-left: 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            color: #666;
+            box-shadow: 
+                5px 5px 10px rgba(163, 177, 198, 0.5),
+                -5px -5px 10px rgba(255, 255, 255, 0.5);
+            transition: all 0.2s ease-in-out;
+            outline: none;
+        }
+
+        .lang-btn.active {
+            box-shadow: 
+                inset 3px 3px 6px rgba(163, 177, 198, 0.8),
+                inset -3px -3px 6px rgba(255, 255, 255, 0.5);
+            color: #3f51b5;
+        }
+        
+        /* Critical language switching styles */
+        [data-lang="zh-en"] [data-zh] {
+          display: block !important;
+        }
+
+        [data-lang="zh-en"] [data-en] {
+          display: none !important;
+        }
+
+        [data-lang="zh-en"].en [data-zh] {
+          display: none !important;
+        }
+
+        [data-lang="zh-en"].en [data-en] {
+          display: block !important;
+        }
+
+        /* Adjust for inline elements */
+        h1 [data-zh], h1 [data-en],
+        h2 [data-zh], h2 [data-en],
+        h3 [data-zh], h3 [data-en],
+        p [data-zh], p [data-en],
+        span [data-zh], span [data-en],
+        button [data-zh], button [data-en],
+        .neumorphic-btn [data-zh], .neumorphic-btn [data-en] {
+          display: inline !important;
         }
         
         h2 {
@@ -60,10 +120,55 @@
             transform: translateY(4px);
         }
     </style>
+    
+    <!-- Initialize language switching immediately -->
+    <script>
+        // Set default language to Chinese
+        document.addEventListener('DOMContentLoaded', function() {
+            var container = document.querySelector('[data-lang="zh-en"]');
+            if (container) {
+                container.classList.remove('en');
+                
+                // Add event listeners to language buttons
+                var langButtons = document.querySelectorAll('.lang-btn');
+                langButtons.forEach(function(button) {
+                    button.addEventListener('click', function() {
+                        // Log for debugging
+                        console.log('Language button clicked:', this.getAttribute('data-lang'));
+                        
+                        // Remove active class from all buttons
+                        langButtons.forEach(function(btn) {
+                            btn.classList.remove('active');
+                        });
+                        
+                        // Add active class to clicked button
+                        this.classList.add('active');
+                        
+                        // Set language
+                        if (this.getAttribute('data-lang') === 'en') {
+                            container.classList.add('en');
+                        } else {
+                            container.classList.remove('en');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
 </head>
 <body>
-    <h2>新拟物化设计</h2>
-    <p>这种设计通过精细控制的阴影创造出"软UI"效果。</p>
-    <div class="neumorphic-btn">点击我</div>
+    <div class="neumorphism-demo" data-lang="zh-en">
+        <div class="language-switch">
+            <button class="lang-btn active" data-lang="zh">中文</button>
+            <button class="lang-btn" data-lang="en">English</button>
+        </div>
+        
+        <h2><span data-zh="新拟物化设计">新拟物化设计</span><span data-en="Neumorphism Design">Neumorphism Design</span></h2>
+        <p><span data-zh="这种设计通过精细控制的阴影创造出"软UI"效果。">这种设计通过精细控制的阴影创造出"软UI"效果。</span><span data-en="This design creates a 'soft UI' effect through carefully controlled shadows.">This design creates a 'soft UI' effect through carefully controlled shadows.</span></p>
+        <div class="neumorphic-btn">
+            <span data-zh="点击我">点击我</span>
+            <span data-en="Click Me">Click Me</span>
+        </div>
+    </div>
 </body>
 </html> 

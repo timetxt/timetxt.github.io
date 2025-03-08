@@ -1,12 +1,82 @@
 <!-- 玻璃拟态卡片容器 -->
-<div class="glass-card">
-  <h2>玻璃拟态效果</h2>
-  <p>这是一个模拟玻璃效果的卡片设计，具有半透明、模糊背景的特点。</p>
-  <button class="glass-btn">了解更多</button>
+<div class="glass-container" data-lang="zh-en">
+  <div class="language-switch">
+    <button class="lang-btn active" data-lang="zh">中文</button>
+    <button class="lang-btn" data-lang="en">English</button>
+  </div>
+  
+  <div class="glass-card">
+    <h2>
+      <span data-zh="玻璃拟态效果">玻璃拟态效果</span>
+      <span data-en="Glass Morphism Effect">Glass Morphism Effect</span>
+    </h2>
+    <p>
+      <span data-zh="这是一个模拟玻璃效果的卡片设计，具有半透明、模糊背景的特点。">这是一个模拟玻璃效果的卡片设计，具有半透明、模糊背景的特点。</span>
+      <span data-en="This is a card design that simulates glass effect, featuring semi-transparent, blurred background.">This is a card design that simulates glass effect, featuring semi-transparent, blurred background.</span>
+    </p>
+    <button class="glass-btn">
+      <span data-zh="了解更多">了解更多</span>
+      <span data-en="Learn More">Learn More</span>
+    </button>
+  </div>
 </div>
 
 <style>
+/* 语言切换样式 */
+.language-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  z-index: 100;
+}
+
+.lang-btn {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 5px 10px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.lang-btn.active {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Handle language display */
+[data-lang="zh-en"] [data-zh],
+[data-lang="zh-en"] [data-en] {
+  display: none;
+}
+
+[data-lang="zh-en"] [data-zh] {
+  display: inline;
+}
+
+[data-lang="zh-en"].en [data-zh] {
+  display: none;
+}
+
+[data-lang="zh-en"].en [data-en] {
+  display: inline;
+}
+
 /* 玻璃卡片样式 */
+.glass-container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .glass-card {
   background: rgba(255, 255, 255, 0.2); /* 背景色为白色带80%透明度 */
   backdrop-filter: blur(10px); /* 背景模糊效果，模糊半径10像素 */
@@ -41,9 +111,8 @@ body {
   background-size: 400% 400%; /* 放大背景尺寸，用于动画效果 */
   animation: gradient 15s ease infinite; /* 应用渐变动画，15秒一周期 */
   height: 100vh; /* 占满整个视口高度 */
-  display: flex;
-  justify-content: center; /* 水平居中 */
-  align-items: center; /* 垂直居中 */
+  margin: 0;
+  padding: 0;
 }
 
 /* 背景渐变动画定义 */
@@ -52,4 +121,32 @@ body {
   50% { background-position: 100% 50%; } /* 中间位置 */
   100% { background-position: 0% 50%; } /* 结束位置回到起点 */
 }
-</style> 
+</style>
+
+<script>
+// 语言切换功能
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.querySelector('.glass-container');
+  const langButtons = document.querySelectorAll('.lang-btn');
+  
+  // 设置默认语言为中文
+  container.classList.remove('en');
+  
+  // 语言按钮点击事件
+  langButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // 移除所有按钮的active类
+      langButtons.forEach(btn => btn.classList.remove('active'));
+      // 给当前点击的按钮添加active类
+      this.classList.add('active');
+      
+      // 设置语言
+      if (this.getAttribute('data-lang') === 'en') {
+        container.classList.add('en');
+      } else {
+        container.classList.remove('en');
+      }
+    });
+  });
+});
+</script> 

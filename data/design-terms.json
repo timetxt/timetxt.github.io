@@ -14,102 +14,122 @@
     },
     {
       "id": "gradient",
-      "name": "渐变效果",
+      "nameEn": "Gradient Effects",
+      "nameZh": "渐变效果",
       "isActive": true
     },
     {
       "id": "animation",
-      "name": "CSS动画",
+      "nameEn": "CSS Animation",
+      "nameZh": "CSS动画",
       "isActive": true
     },
     {
       "id": "grid-layout",
-      "name": "网格布局",
+      "nameEn": "Grid Layout",
+      "nameZh": "网格布局",
       "isActive": true
     },
     {
       "id": "muted-colors",
-      "name": "低饱和度配色",
+      "nameEn": "Muted Colors",
+      "nameZh": "低饱和度配色",
       "isActive": true
     },
     {
       "id": "minimal-typography",
-      "name": "极简字体排版",
+      "nameEn": "Minimal Typography",
+      "nameZh": "极简字体排版",
       "isActive": true
     },
     {
       "id": "dark-mode",
-      "name": "深色模式",
+      "nameEn": "Dark Mode",
+      "nameZh": "深色模式",
       "isActive": true
     },
     {
       "id": "micro-interactions",
-      "name": "微交互设计",
+      "nameEn": "Micro Interactions",
+      "nameZh": "微交互设计",
       "isActive": true
     },
     {
       "id": "3d-transforms",
-      "name": "3D变换效果",
+      "nameEn": "3D Transforms",
+      "nameZh": "3D变换效果",
       "isActive": true
     },
     {
       "id": "responsive-cards",
-      "name": "响应式卡片",
+      "nameEn": "Responsive Cards",
+      "nameZh": "响应式卡片",
       "isActive": true
     },
     {
       "id": "floating-labels",
-      "name": "悬浮标签",
+      "nameEn": "Floating Labels",
+      "nameZh": "悬浮标签",
       "isActive": true
     },
     {
       "id": "advanced-shadows",
-      "name": "高级阴影效果",
+      "nameEn": "Advanced Shadows",
+      "nameZh": "高级阴影效果",
       "isActive": true
     },
     {
       "id": "parallax-scrolling",
-      "name": "视差滚动效果",
+      "nameEn": "Parallax Scrolling",
+      "nameZh": "视差滚动效果",
       "isActive": true
     },
     {
       "id": "css-custom-properties",
-      "name": "CSS自定义属性",
+      "nameEn": "CSS Custom Properties",
+      "nameZh": "CSS自定义属性",
       "isActive": true
     },
     {
       "id": "frosted-glass",
-      "name": "毛玻璃效果",
+      "nameEn": "Frosted Glass Effect",
+      "nameZh": "毛玻璃效果",
       "isActive": true
     },
     {
       "id": "layout-switcher",
-      "name": "布局切换器",
+      "nameEn": "Layout Switcher",
+      "nameZh": "布局切换器",
       "isActive": true
     },
     {
       "id": "image-filters",
-      "name": "图片滤镜效果",
+      "nameEn": "Image Filters",
+      "nameZh": "图片滤镜效果",
       "isActive": true
     },
     {
       "id": "clip-path",
-      "name": "剪贴路径效果",
+      "nameEn": "Clip Path Effects",
+      "nameZh": "剪贴路径效果",
       "isActive": true
     },
     {
       "id": "interactive-forms",
-      "name": "交互式表单",
+      "nameEn": "Interactive Forms",
+      "nameZh": "交互式表单",
       "isActive": true
     },
     {
       "id": "blend-modes",
-      "name": "混合模式效果",
+      "nameEn": "Blend Modes",
+      "nameZh": "混合模式效果",
       "isActive": true
     },
     {
       "id": "accessibility-design",
-      "name": "可访问性设计",
+      "nameEn": "Accessibility Design",
+      "nameZh": "可访问性设计",
       "isActive": true
     }
   ]

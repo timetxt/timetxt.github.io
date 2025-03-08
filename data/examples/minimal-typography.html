@@ -15,6 +15,48 @@
             background-color: #f8f9fa;
         }
         
+        .language-switch {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 40px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid #ddd;
+            padding: 8px 16px;
+            margin-left: 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background-color: #333;
+            color: white;
+            border-color: #333;
+        }
+
+        /* Handle language display */
+        [data-lang="zh-en"] [data-zh],
+        [data-lang="zh-en"] [data-en] {
+            display: none;
+        }
+
+        [data-lang="zh-en"] [data-zh] {
+            display: block;
+        }
+
+        [data-lang="zh-en"].en [data-zh] {
+            display: none;
+        }
+
+        [data-lang="zh-en"].en [data-en] {
+            display: block;
+        }
+
         .container {
             display: flex;
             flex-direction: column;
@@ -102,32 +144,94 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" data-lang="zh-en">
+        <div class="language-switch">
+            <button class="lang-btn active" data-lang="zh">中文</button>
+            <button class="lang-btn" data-lang="en">English</button>
+        </div>
+        
         <div class="section">
-            <h1 class="title">Minimal Typography</h1>
-            <p class="paragraph">Typography is the art and technique of arranging type to make written language legible, readable, and appealing when displayed. Good typography establishes a strong visual hierarchy and provides a graphic balance to enhance readability.</p>
-            <p class="paragraph">In minimal design, typography takes center stage with careful attention to font size, spacing, and subtle shadows that create depth without overwhelming the content.</p>
+            <h1 class="title">
+                <span data-zh="极简字体排版">极简字体排版</span>
+                <span data-en="Minimal Typography">Minimal Typography</span>
+            </h1>
+            <p class="paragraph">
+                <span data-zh="字体排版是安排字体的艺术和技术，使书面语言在显示时既易读、易懂，又具有吸引力。良好的排版建立了强大的视觉层次结构，提供了视觉平衡，增强了可读性。">字体排版是安排字体的艺术和技术，使书面语言在显示时既易读、易懂，又具有吸引力。良好的排版建立了强大的视觉层次结构，提供了视觉平衡，增强了可读性。</span>
+                <span data-en="Typography is the art and technique of arranging type to make written language legible, readable, and appealing when displayed. Good typography establishes a strong visual hierarchy and provides a graphic balance to enhance readability.">Typography is the art and technique of arranging type to make written language legible, readable, and appealing when displayed. Good typography establishes a strong visual hierarchy and provides a graphic balance to enhance readability.</span>
+            </p>
+            <p class="paragraph">
+                <span data-zh="在极简设计中，字体排版成为焦点，通过精心关注字体大小、间距和微妙阴影来创造深度，而不会使内容过于复杂。">在极简设计中，字体排版成为焦点，通过精心关注字体大小、间距和微妙阴影来创造深度，而不会使内容过于复杂。</span>
+                <span data-en="In minimal design, typography takes center stage with careful attention to font size, spacing, and subtle shadows that create depth without overwhelming the content.">In minimal design, typography takes center stage with careful attention to font size, spacing, and subtle shadows that create depth without overwhelming the content.</span>
+            </p>
         </div>
         
         <div class="highlight">
-            Large type sizes combined with careful spacing create visual impact while maintaining elegance and readability.
+            <span data-zh="大字体与精心的间距结合创造视觉冲击力，同时保持优雅和可读性。">大字体与精心的间距结合创造视觉冲击力，同时保持优雅和可读性。</span>
+            <span data-en="Large type sizes combined with careful spacing create visual impact while maintaining elegance and readability.">Large type sizes combined with careful spacing create visual impact while maintaining elegance and readability.</span>
         </div>
         
         <div class="section">
-            <h2 class="subtitle">The Power of Space</h2>
-            <p class="paragraph">White space (negative space) is as important as the text itself. Generous margins and line spacing allow content to breathe and improve comprehension. The right balance creates rhythm and guides the reader's eye naturally through the content.</p>
+            <h2 class="subtitle">
+                <span data-zh="空间的力量">空间的力量</span>
+                <span data-en="The Power of Space">The Power of Space</span>
+            </h2>
+            <p class="paragraph">
+                <span data-zh="留白（负空间）与文本本身同等重要。宽裕的边距和行间距让内容呼吸，提高理解度。正确的平衡创造节奏，自然引导读者的视线穿过内容。">留白（负空间）与文本本身同等重要。宽裕的边距和行间距让内容呼吸，提高理解度。正确的平衡创造节奏，自然引导读者的视线穿过内容。</span>
+                <span data-en="White space (negative space) is as important as the text itself. Generous margins and line spacing allow content to breathe and improve comprehension. The right balance creates rhythm and guides the reader's eye naturally through the content.">White space (negative space) is as important as the text itself. Generous margins and line spacing allow content to breathe and improve comprehension. The right balance creates rhythm and guides the reader's eye naturally through the content.</span>
+            </p>
             
             <div class="quote">
-                "Typography is what language looks like."
-                <div class="caption">— Ellen Lupton, Graphic Designer</div>
+                <span data-zh">"排版是语言的外观。"">排版是语言的外观。</span>
+                <span data-en">"Typography is what language looks like."">Typography is what language looks like.</span>
+                <div class="caption">
+                    <span data-zh>— Ellen Lupton，平面设计师</span>
+                    <span data-en>— Ellen Lupton, Graphic Designer</span>
+                </div>
             </div>
         </div>
         
         <div class="section">
-            <h2 class="subtitle">Subtle Depth</h2>
-            <p class="paragraph">Minimal typography doesn't mean flat design. Carefully applied text shadows create subtle depth that enhances legibility without drawing attention to the effect itself. The goal is to create a sense of quality and intention.</p>
-            <p class="paragraph">When used correctly, soft shadows elevate typography from the page, creating a tactile quality that engages viewers on both conscious and subconscious levels.</p>
+            <h2 class="subtitle">
+                <span data-zh="微妙的深度">微妙的深度</span>
+                <span data-en="Subtle Depth">Subtle Depth</span>
+            </h2>
+            <p class="paragraph">
+                <span data-zh="极简排版并不意味着平面设计。精心应用的文字阴影创造微妙的深度，增强可读性，同时不引人注意效果本身。目标是创造一种质量感和意图感。">极简排版并不意味着平面设计。精心应用的文字阴影创造微妙的深度，增强可读性，同时不引人注意效果本身。目标是创造一种质量感和意图感。</span>
+                <span data-en="Minimal typography doesn't mean flat design. Carefully applied text shadows create subtle depth that enhances legibility without drawing attention to the effect itself. The goal is to create a sense of quality and intention.">Minimal typography doesn't mean flat design. Carefully applied text shadows create subtle depth that enhances legibility without drawing attention to the effect itself. The goal is to create a sense of quality and intention.</span>
+            </p>
+            <p class="paragraph">
+                <span data-zh="使用正确时，柔和的阴影将排版从页面中提升出来，创造一种触觉质感，在有意识和潜意识层面上吸引观众。">使用正确时，柔和的阴影将排版从页面中提升出来，创造一种触觉质感，在有意识和潜意识层面上吸引观众。</span>
+                <span data-en="When used correctly, soft shadows elevate typography from the page, creating a tactile quality that engages viewers on both conscious and subconscious levels.">When used correctly, soft shadows elevate typography from the page, creating a tactile quality that engages viewers on both conscious and subconscious levels.</span>
+            </p>
         </div>
     </div>
+
+    <script>
+        // 语言切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('[data-lang="zh-en"]');
+            const langButtons = document.querySelectorAll('.lang-btn');
+            
+            // 设置默认语言为中文
+            container.classList.remove('en');
+            
+            // 语言按钮点击事件
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // 移除所有按钮的active类
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    // 给当前点击的按钮添加active类
+                    this.classList.add('active');
+                    
+                    // 设置语言
+                    if (this.getAttribute('data-lang') === 'en') {
+                        container.classList.add('en');
+                    } else {
+                        container.classList.remove('en');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html> 

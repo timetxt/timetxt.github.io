@@ -1,43 +1,87 @@
-<div class="custom-props-container">
-  <h2>CSS自定义属性</h2>
-  <p>使用CSS变量实现主题定制和高效样式管理</p>
+<div class="custom-props-container" data-lang="zh-en">
+  <div class="language-switch">
+    <button class="lang-btn active" data-lang="zh">中文</button>
+    <button class="lang-btn" data-lang="en">English</button>
+  </div>
+  
+  <h2>
+    <span data-zh="CSS自定义属性">CSS自定义属性</span>
+    <span data-en="CSS Custom Properties">CSS Custom Properties</span>
+  </h2>
+  <p>
+    <span data-zh="使用CSS变量实现主题定制和高效样式管理">使用CSS变量实现主题定制和高效样式管理</span>
+    <span data-en="Use CSS variables for theme customization and efficient style management">Use CSS variables for theme customization and efficient style management</span>
+  </p>
   
   <div class="controls">
     <div class="color-controls">
-      <label>主色调：</label>
+      <label>
+        <span data-zh="主色调：">主色调：</span>
+        <span data-en="Primary Color:">Primary Color:</span>
+      </label>
       <input type="color" id="primary-color" value="#3f51b5">
       
-      <label>次要色调：</label>
+      <label>
+        <span data-zh="次要色调：">次要色调：</span>
+        <span data-en="Secondary Color:">Secondary Color:</span>
+      </label>
       <input type="color" id="secondary-color" value="#ff4081">
     </div>
     
     <div class="size-controls">
-      <label>元素大小：</label>
+      <label>
+        <span data-zh="元素大小：">元素大小：</span>
+        <span data-en="Element Size:">Element Size:</span>
+      </label>
       <input type="range" id="size-control" min="0.5" max="1.5" step="0.1" value="1">
     </div>
     
     <div class="spacing-controls">
-      <label>元素间距：</label>
+      <label>
+        <span data-zh="元素间距：">元素间距：</span>
+        <span data-en="Element Spacing:">Element Spacing:</span>
+      </label>
       <input type="range" id="spacing-control" min="0.5" max="2" step="0.1" value="1">
     </div>
   </div>
   
   <div class="demo-section">
     <div class="custom-card">
-      <h3>卡片标题</h3>
-      <p>这个卡片使用CSS变量控制样式。尝试调整上方的控制器来修改不同属性。</p>
-      <button class="custom-button primary">主要按钮</button>
+      <h3>
+        <span data-zh="卡片标题">卡片标题</span>
+        <span data-en="Card Title">Card Title</span>
+      </h3>
+      <p>
+        <span data-zh="这个卡片使用CSS变量控制样式。尝试调整上方的控制器来修改不同属性。">这个卡片使用CSS变量控制样式。尝试调整上方的控制器来修改不同属性。</span>
+        <span data-en="This card uses CSS variables to control styles. Try adjusting the controls above to modify different properties.">This card uses CSS variables to control styles. Try adjusting the controls above to modify different properties.</span>
+      </p>
+      <button class="custom-button primary">
+        <span data-zh="主要按钮">主要按钮</span>
+        <span data-en="Primary Button">Primary Button</span>
+      </button>
     </div>
     
     <div class="custom-card">
-      <h3>另一个卡片</h3>
-      <p>CSS自定义属性（也称为CSS变量）允许我们定义可复用的值，并在样式表中引用它们。</p>
-      <button class="custom-button secondary">次要按钮</button>
+      <h3>
+        <span data-zh="另一个卡片">另一个卡片</span>
+        <span data-en="Another Card">Another Card</span>
+      </h3>
+      <p>
+        <span data-zh="CSS自定义属性（也称为CSS变量）允许我们定义可复用的值，并在样式表中引用它们。">CSS自定义属性（也称为CSS变量）允许我们定义可复用的值，并在样式表中引用它们。</span>
+        <span data-en="CSS custom properties (also known as CSS variables) allow us to define reusable values and reference them in the stylesheet.">CSS custom properties (also known as CSS variables) allow us to define reusable values and reference them in the stylesheet.</span>
+      </p>
+      <button class="custom-button secondary">
+        <span data-zh="次要按钮">次要按钮</span>
+        <span data-en="Secondary Button">Secondary Button</span>
+      </button>
     </div>
   </div>
   
   <div class="code-preview">
-    <h3>CSS变量定义</h3>
+    <h3>
+      <span data-zh="CSS变量定义">CSS变量定义</span>
+      <span data-en="CSS Variable Definition">CSS Variable Definition</span>
+    </h3>
     <pre><code>:root {
   --primary-color: #3f51b5;
   --secondary-color: #ff4081;
@@ -45,7 +89,10 @@
   --base-size: 1;
   --base-spacing: 1;
 }</code></pre>
-    <h3>使用方式</h3>
+    <h3>
+      <span data-zh="使用方式">使用方式</span>
+      <span data-en="Usage">Usage</span>
+    </h3>
     <pre><code>.custom-button.primary {
   background-color: var(--primary-color);
   padding: calc(8px * var(--base-size));
@@ -64,6 +111,46 @@
   --border-radius: 8px;
   --base-size: 1;
   --base-spacing: 1;
+}
+
+.language-switch {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.lang-btn {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.lang-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Handle language display */
+[data-lang="zh-en"] [data-zh],
+[data-lang="zh-en"] [data-en] {
+  display: none;
+}
+
+[data-lang="zh-en"] [data-zh] {
+  display: inline;
+}
+
+[data-lang="zh-en"].en [data-zh] {
+  display: none;
+}
+
+[data-lang="zh-en"].en [data-en] {
+  display: inline;
 }
 
 .custom-props-container {
@@ -182,22 +269,47 @@
 </style>
 
 <script>
-// 监听颜色选择器变化
-document.getElementById('primary-color').addEventListener('input', function(e) {
-  document.documentElement.style.setProperty('--primary-color', e.target.value);
-});
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.querySelector('.custom-props-container');
+  const langButtons = document.querySelectorAll('.lang-btn');
+  
+  // 设置默认语言为中文
+  container.classList.remove('en');
+  
+  // 语言按钮点击事件
+  langButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // 移除所有按钮的active类
+      langButtons.forEach(btn => btn.classList.remove('active'));
+      // 给当前点击的按钮添加active类
+      this.classList.add('active');
+      
+      // 设置语言
+      if (this.getAttribute('data-lang') === 'en') {
+        container.classList.add('en');
+      } else {
+        container.classList.remove('en');
+      }
+    });
+  });
+  
+  // 监听颜色选择器变化
+  document.getElementById('primary-color').addEventListener('input', function(e) {
+    document.documentElement.style.setProperty('--primary-color', e.target.value);
+  });
 
-document.getElementById('secondary-color').addEventListener('input', function(e) {
-  document.documentElement.style.setProperty('--secondary-color', e.target.value);
-});
+  document.getElementById('secondary-color').addEventListener('input', function(e) {
+    document.documentElement.style.setProperty('--secondary-color', e.target.value);
+  });
 
-// 监听大小滑块变化
-document.getElementById('size-control').addEventListener('input', function(e) {
-  document.documentElement.style.setProperty('--base-size', e.target.value);
-});
+  // 监听大小滑块变化
+  document.getElementById('size-control').addEventListener('input', function(e) {
+    document.documentElement.style.setProperty('--base-size', e.target.value);
+  });
 
-// 监听间距滑块变化
-document.getElementById('spacing-control').addEventListener('input', function(e) {
-  document.documentElement.style.setProperty('--base-spacing', e.target.value);
+  // 监听间距滑块变化
+  document.getElementById('spacing-control').addEventListener('input', function(e) {
+    document.documentElement.style.setProperty('--base-spacing', e.target.value);
+  });
 });
 </script> 

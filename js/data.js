@@ -20,9 +20,9 @@ async function getExamples() {
                     const htmlContent = await response.text();
                     examples.push({
                         id: term.id,
-                        // 兼容新旧格式的JSON
-                        titleEn: term.nameEn || term.name, 
-                        titleZh: term.nameZh || term.name,
+                        // 确保同时支持英文和中文标题
+                        titleEn: term.nameEn || term.name || term.id,
+                        titleZh: term.nameZh || term.name || term.id,
                         code: htmlContent
                     });
                 } else {

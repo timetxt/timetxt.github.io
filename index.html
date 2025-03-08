@@ -108,5 +108,37 @@
     <script src="js/codeCopy.js"></script>
     <script src="js/codeRenderer.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/language-switcher.js"></script>
+
+    <!-- Make sure the language button triggers language switching -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // If there's a language button with a specific class or ID, ensure it calls our toggle function
+        const langButton = document.querySelector('.lang-btn, #langBtn, [data-action="toggle-language"]');
+        if (langButton) {
+          langButton.addEventListener('click', window.languageSwitcher.toggle);
+        }
+        
+        // Apply initial language
+        if (window.languageSwitcher) {
+          // Get saved language or default
+          const savedLang = localStorage.getItem('preferredLanguage') || 'zh';
+          window.languageSwitcher.apply(savedLang);
+        }
+        
+        // When the display content changes, apply language
+        const displayContainer = document.querySelector('#displayContainer, .display-content, .preview-window');
+        if (displayContainer) {
+          // Use mutation observer to detect content changes
+          const observer = new MutationObserver(() => {
+            if (window.languageSwitcher) {
+              window.languageSwitcher.apply(window.languageSwitcher.getCurrentLanguage());
+            }
+          });
+          
+          observer.observe(displayContainer, { childList: true, subtree: true });
+        }
+      });
+    </script>
 </body>
 </html> 

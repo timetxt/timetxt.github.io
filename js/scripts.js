@@ -22,6 +22,17 @@ document.addEventListener('DOMContentLoaded', async function() {
     observePreviewSectionChanges();
     
     // 加载设计模式列表（而不是加载所有示例内容）
+    loadSidebarItems();
+    
+    // 添加加载状态相关的样式
+    addLoadingStyles();
+    
+    // 初始不自动加载任何示例，只显示欢迎信息
+    showWelcomeScreen();
+});
+
+// 加载侧边栏项目
+async function loadSidebarItems() {
     let designTerms;
     try {
         // 只加载设计模式的基本信息
@@ -43,7 +54,9 @@ document.addEventListener('DOMContentLoaded', async function() {
     designTerms.forEach(term => {
         const item = document.createElement('div');
         item.className = 'sidebar-item';
-        item.textContent = getCurrentLanguage() === 'zh' ? (term.nameZh || term.name) : (term.nameEn || term.name);
+        // 根据当前语言设置显示文本
+        const currentLang = getCurrentLanguage();
+        item.textContent = currentLang === 'zh' ? (term.nameZh || term.name) : (term.nameEn || term.name);
         item.setAttribute('data-id', term.id);
         
         // 显示加载中状态的内容
@@ -87,13 +100,12 @@ document.addEventListener('DOMContentLoaded', async function() {
         
         sidebar.appendChild(item);
     });
-    
-    // 添加加载状态相关的样式
-    addLoadingStyles();
-    
-    // 初始不自动加载任何示例，只显示欢迎信息
-    showWelcomeScreen();
-});
+}
+
+// 实现loadExamples函数，用于语言切换后刷新侧边栏
+function loadExamples() {
+    loadSidebarItems();
+}
 
 // 显示欢迎屏幕
 function showWelcomeScreen() {
@@ -426,8 +438,9 @@ function displayExample(example) {
     const previewContainer = document.getElementById('preview-container');
     const exampleTitle = document.getElementById('example-title');
     
-    // 设置标题
-    exampleTitle.textContent = getCurrentLanguage() === 'zh' ? example.titleZh : example.titleEn;
+    // 设置标题 - 确保使用当前语言
+    const currentLang = getCurrentLanguage();
+    exampleTitle.textContent = currentLang === 'zh' ? example.titleZh : example.titleEn;
     
     // 设置代码
     codeContainer.innerHTML = '';
@@ -464,12 +477,15 @@ function displayExample(example) {
             <div class="browser-dot yellow"></div>
             <div class="browser-dot green"></div>
         </div>
-        <div class="browser-address">预览：${getCurrentLanguage() === 'zh' ? example.titleZh : example.titleEn}</div>
+        <div class="browser-address">
+            ${currentLang === 'zh' ? '预览：' : 'Preview: '}
+            ${currentLang === 'zh' ? example.titleZh : example.titleEn}
+        </div>
         <div class="browser-actions">
-            <button class="action-button refresh-button" title="刷新预览">
+            <button class="action-button refresh-button" title="${currentLang === 'zh' ? '刷新预览' : 'Refresh Preview'}">
                 <i class="fas fa-sync-alt"></i>
             </button>
-            <button class="action-button open-button" title="在新窗口打开">
+            <button class="action-button open-button" title="${currentLang === 'zh' ? '在新窗口打开' : 'Open in New Window'}">
                 <i class="fas fa-external-link-alt"></i>
             </button>
         </div>
@@ -486,13 +502,13 @@ function displayExample(example) {
     viewportControls.className = 'preview-viewport-controls';
     viewportControls.innerHTML = `
         <button class="viewport-button active" data-width="100%">
-            <i class="fas fa-desktop"></i> 桌面
+            <i class="fas fa-desktop"></i> ${currentLang === 'zh' ? '桌面' : 'Desktop'}
         </button>
         <button class="viewport-button" data-width="768px">
-            <i class="fas fa-tablet-alt"></i> 平板
+            <i class="fas fa-tablet-alt"></i> ${currentLang === 'zh' ? '平板' : 'Tablet'}
         </button>
         <button class="viewport-button" data-width="375px">
-            <i class="fas fa-mobile-alt"></i> 手机
+            <i class="fas fa-mobile-alt"></i> ${currentLang === 'zh' ? '手机' : 'Mobile'}
         </button>
     `;
     previewContainer.appendChild(viewportControls);
@@ -610,6 +626,35 @@ function loadIframeContent(iframe, code) {
                             height: auto;
                         }
                     </style>
+                    <script>
+                    // Wrap language handling in an IIFE to avoid variable conflicts
+                    (function() {
+                        // Language handling
+                        function updateElementsLanguage(lang) {
+                            document.querySelectorAll('[data-zh][data-en]').forEach(el => {
+                                el.textContent = el.getAttribute('data-' + lang);
+                            });
+                        }
+
+                        // Check the language when loaded
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const lang = document.documentElement.getAttribute('lang') || 'zh';
+                            updateElementsLanguage(lang);
+                        });
+
+                        // Listen for language changes
+                        const langObserver = new MutationObserver(function(mutations) {
+                            mutations.forEach(function(mutation) {
+                                if (mutation.type === 'attributes' && mutation.attributeName === 'lang') {
+                                    const lang = document.documentElement.getAttribute('lang') || 'zh';
+                                    updateElementsLanguage(lang);
+                                }
+                            });
+                        });
+
+                        langObserver.observe(document.documentElement, { attributes: true });
+                    })();
+                    </script>
                 </head>
                 <body>
                     ${code}

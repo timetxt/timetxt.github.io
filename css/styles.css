@@ -1,0 +1,36 @@
+/* Add language-specific styles */
+
+/* Language-specific font adjustments */
+.lang-en, [lang="en"] {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, 'Helvetica Neue', sans-serif;
+}
+
+.lang-zh, [lang="zh"] {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+}
+
+/* Adjust line height for different languages */
+.lang-en p, [lang="en"] p {
+  line-height: 1.6;
+}
+
+.lang-zh p, [lang="zh"] p {
+  line-height: 1.8; /* Slightly more spacing for Chinese characters */
+}
+
+/* Potential font size adjustments if needed */
+[lang="zh"] h1, [lang="zh"] h2, [lang="zh"] h3,
+.lang-zh h1, .lang-zh h2, .lang-zh h3 {
+  /* Chinese headings might need size adjustments */
+}
+
+/* Hidden language variants - hide elements when not in their language */
+.lang-zh .en-only, [lang="zh"] .en-only {
+  display: none;
+}
+
+.lang-en .zh-only, [lang="en"] .zh-only {
+  display: none;
+}
+
+/* Language-specific element spacing adjustments may be added if needed */ 

@@ -1,15 +1,25 @@
 <!-- 网格布局容器 -->
-<div class="grid-container">
-  <!-- 头部区域 -->
-  <header class="header">头部</header>
-  <!-- 导航区域 -->
-  <nav class="nav">导航</nav>
-  <!-- 主要内容区域 -->
-  <main class="main">主要内容区域</main>
-  <!-- 侧边栏区域 -->
-  <aside class="sidebar">侧边栏</aside>
-  <!-- 底部区域 -->
-  <footer class="footer">底部</footer>
+<div class="grid-demo" data-lang="zh-en">
+  <div class="language-switch">
+    <button class="lang-btn active" data-lang="zh">中文</button>
+    <button class="lang-btn" data-lang="en">English</button>
+  </div>
+  
+  <h2 data-zh="CSS网格布局" data-en="CSS Grid Layout"></h2>
+  <p data-zh="使用CSS Grid创建强大的二维布局" data-en="Create powerful two-dimensional layouts with CSS Grid"></p>
+  
+  <div class="grid-container">
+    <!-- 头部区域 -->
+    <header class="header" data-zh="头部" data-en="Header"></header>
+    <!-- 导航区域 -->
+    <nav class="nav" data-zh="导航" data-en="Navigation"></nav>
+    <!-- 主要内容区域 -->
+    <main class="main" data-zh="主要内容区域" data-en="Main Content"></main>
+    <!-- 侧边栏区域 -->
+    <aside class="sidebar" data-zh="侧边栏" data-en="Sidebar"></aside>
+    <!-- 底部区域 -->
+    <footer class="footer" data-zh="底部" data-en="Footer"></footer>
+  </div>
 </div>
 
 <style>
@@ -25,6 +35,74 @@ body {
   font-family: 'Arial', sans-serif; /* 无衬线字体 */
 }
 
+/* 语言切换样式 */
+.language-switch {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.lang-btn {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.lang-btn:hover {
+  border-color: #5f27cd;
+  color: #5f27cd;
+}
+
+.lang-btn.active {
+  background-color: #5f27cd;
+  color: white;
+  border-color: #5f27cd;
+}
+
+/* Handle language display */
+[data-lang="zh-en"] [data-zh],
+[data-lang="zh-en"] [data-en] {
+  display: none;
+}
+
+[data-lang="zh-en"] [data-zh] {
+  display: inline;
+}
+
+[data-lang="zh-en"].en [data-zh] {
+  display: none;
+}
+
+[data-lang="zh-en"].en [data-en] {
+  display: inline;
+}
+
+/* 网格演示容器 */
+.grid-demo {
+  max-width: 900px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.grid-demo h2 {
+  text-align: center;
+  color: #333;
+  margin-top: 0;
+}
+
+.grid-demo p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+
 /* 网格容器样式 */
 .grid-container {
   display: grid; /* 使用CSS Grid布局 */
@@ -37,8 +115,8 @@ body {
     "sidebar main main main" /* 侧边栏占1列，主内容占3列 */
     "footer footer footer footer"; /* 底部占满所有4列 */
   gap: 10px; /* 网格单元之间的间隙 */
-  width: 80%; /* 容器宽度 */
-  height: 80vh; /* 容器高度 */
+  width: 100%; /* 容器宽度 */
+  height: 500px; /* 容器高度 */
 }
 
 /* 所有区域的共同样式 */
@@ -92,6 +170,65 @@ body {
       "main"
       "sidebar"
       "footer";
+    height: 600px;
   }
 }
-</style> 
+</style>
+
+<script>
+// 立即执行的语言切换功能
+(function() {
+  // 获取容器和语言切换按钮
+  const container = document.querySelector('.grid-demo');
+  const langButtons = document.querySelectorAll('.lang-btn');
+  
+  // 确保元素存在
+  if (!container || langButtons.length === 0) {
+    console.error('Language elements not found!');
+    return;
+  }
+  
+  console.log('Language switch initialized');
+  
+  // 设置默认语言为中文 (确保初始状态正确)
+  updateLanguageDisplay('zh');
+  
+  // 为每个语言按钮添加点击事件
+  langButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const lang = this.getAttribute('data-lang');
+      
+      // 更新按钮样式
+      langButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      
+      // 更新语言显示
+      updateLanguageDisplay(lang);
+      
+      console.log('Language switched to: ' + lang);
+    });
+  });
+  
+  // 更新语言显示函数
+  function updateLanguageDisplay(lang) {
+    // 设置容器类
+    if (lang === 'en') {
+      container.classList.add('en');
+    } else {
+      container.classList.remove('en');
+    }
+    
+    // 更新所有带有data-zh和data-en属性的元素
+    const elements = document.querySelectorAll('[data-zh], [data-en]');
+    
+    elements.forEach(function(element) {
+      // 获取当前语言的文本
+      const text = element.getAttribute(`data-${lang}`);
+      if (text) {
+        // 更新元素内容
+        element.textContent = text;
+      }
+    });
+  }
+})();
+</script> 

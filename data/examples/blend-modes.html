@@ -1,3 +1,261 @@
+<div class="blend-modes-container" data-lang="zh-en">
+  <div class="language-switch">
+    <button class="lang-btn active" data-lang="zh">中文</button>
+    <button class="lang-btn" data-lang="en">English</button>
+  </div>
+  
+  <h2>
+    <span data-zh="CSS混合模式效果">CSS混合模式效果</span>
+    <span data-en="CSS Blend Mode Effects">CSS Blend Mode Effects</span>
+  </h2>
+  <p>
+    <span data-zh="混合模式控制图层之间的颜色如何相互混合">混合模式控制图层之间的颜色如何相互混合</span>
+    <span data-en="Blend modes control how colors mix between layers">Blend modes control how colors mix between layers</span>
+  </p>
+  
+  <div class="blend-modes-grid">
+    <div class="blend-card" data-blend-mode="normal">
+      <div class="blend-example"></div>
+      <div class="blend-name">
+        <span data-zh="正常">正常</span>
+        <span data-en="Normal">Normal</span>
+      </div>
+    </div>
+    <div class="blend-card" data-blend-mode="multiply">
+      <div class="blend-example"></div>
+      <div class="blend-name">
+        <span data-zh="正片叠底">正片叠底</span>
+        <span data-en="Multiply">Multiply</span>
+      </div>
+    </div>
+    <div class="blend-card" data-blend-mode="screen">
+      <div class="blend-example"></div>
+      <div class="blend-name">
+        <span data-zh="滤色">滤色</span>
+        <span data-en="Screen">Screen</span>
+      </div>
+    </div>
+    <div class="blend-card" data-blend-mode="overlay">
+      <div class="blend-example"></div>
+      <div class="blend-name">
+        <span data-zh="叠加">叠加</span>
+        <span data-en="Overlay">Overlay</span>
+      </div>
+    </div>
+    <div class="blend-card" data-blend-mode="darken">
+      <div class="blend-example"></div>
+      <div class="blend-name">
+        <span data-zh="变暗">变暗</span>
+        <span data-en="Darken">Darken</span>
+      </div>
+    </div>
+    <div class="blend-card" data-blend-mode="lighten">
+      <div class="blend-example"></div>
+      <div class="blend-name">
+        <span data-zh="变亮">变亮</span>
+        <span data-en="Lighten">Lighten</span>
+      </div>
+    </div>
+    <div class="blend-card" data-blend-mode="color-dodge">
+      <div class="blend-example"></div>
+      <div class="blend-name">
+        <span data-zh="颜色减淡">颜色减淡</span>
+        <span data-en="Color Dodge">Color Dodge</span>
+      </div>
+    </div>
+    <div class="blend-card" data-blend-mode="color-burn">
+      <div class="blend-example"></div>
+      <div class="blend-name">
+        <span data-zh="颜色加深">颜色加深</span>
+        <span data-en="Color Burn">Color Burn</span>
+      </div>
+    </div>
+    <div class="blend-card" data-blend-mode="difference">
+      <div class="blend-example"></div>
+      <div class="blend-name">
+        <span data-zh="差值">差值</span>
+        <span data-en="Difference">Difference</span>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    .language-switch {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+    
+    .lang-btn {
+      background: none;
+      border: 1px solid #ddd;
+      padding: 5px 10px;
+      margin-left: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    
+    .lang-btn.active {
+      background-color: #4285f4;
+      color: white;
+      border-color: #4285f4;
+    }
+    
+    /* Handle language display */
+    [data-lang="zh-en"] [data-zh],
+    [data-lang="zh-en"] [data-en] {
+      display: none;
+    }
+    
+    [data-lang="zh-en"] [data-zh] {
+      display: inline;
+    }
+    
+    [data-lang="zh-en"].en [data-zh] {
+      display: none;
+    }
+    
+    [data-lang="zh-en"].en [data-en] {
+      display: inline;
+    }
+    
+    .blend-modes-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+    }
+    
+    .blend-modes-container h2 {
+      text-align: center;
+      margin-top: 0;
+      color: #333;
+    }
+    
+    .blend-modes-container p {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    
+    .blend-modes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    
+    .blend-card {
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .blend-example {
+      height: 180px;
+      position: relative;
+      background-color: #f0f0f0;
+    }
+    
+    .blend-example::before,
+    .blend-example::after {
+      content: '';
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+    }
+    
+    .blend-example::before {
+      background-color: rgba(66, 133, 244, 0.7);
+      top: 15px;
+      left: 30px;
+    }
+    
+    .blend-example::after {
+      background-color: rgba(234, 67, 53, 0.7);
+      top: 15px;
+      right: 30px;
+      mix-blend-mode: attr(data-blend-mode);
+    }
+    
+    .blend-name {
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    /* 设置每个卡片的混合模式 */
+    [data-blend-mode="normal"] .blend-example::after {
+      mix-blend-mode: normal;
+    }
+    
+    [data-blend-mode="multiply"] .blend-example::after {
+      mix-blend-mode: multiply;
+    }
+    
+    [data-blend-mode="screen"] .blend-example::after {
+      mix-blend-mode: screen;
+    }
+    
+    [data-blend-mode="overlay"] .blend-example::after {
+      mix-blend-mode: overlay;
+    }
+    
+    [data-blend-mode="darken"] .blend-example::after {
+      mix-blend-mode: darken;
+    }
+    
+    [data-blend-mode="lighten"] .blend-example::after {
+      mix-blend-mode: lighten;
+    }
+    
+    [data-blend-mode="color-dodge"] .blend-example::after {
+      mix-blend-mode: color-dodge;
+    }
+    
+    [data-blend-mode="color-burn"] .blend-example::after {
+      mix-blend-mode: color-burn;
+    }
+    
+    [data-blend-mode="difference"] .blend-example::after {
+      mix-blend-mode: difference;
+    }
+  </style>
+  
+  <script>
+    // 语言切换功能
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.querySelector('.blend-modes-container');
+      const langButtons = document.querySelectorAll('.lang-btn');
+      
+      // 设置默认语言为中文
+      container.classList.remove('en');
+      
+      // 语言按钮点击事件
+      langButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // 移除所有按钮的active类
+          langButtons.forEach(btn => btn.classList.remove('active'));
+          // 给当前点击的按钮添加active类
+          this.classList.add('active');
+          
+          // 设置语言
+          if (this.getAttribute('data-lang') === 'en') {
+            container.classList.add('en');
+          } else {
+            container.classList.remove('en');
+          }
+        });
+      });
+    });
+  </script>
+</div>
+
 <div class="blend-container">
   <h2>CSS混合模式效果</h2>
   <p>使用background-blend-mode和mix-blend-mode创建各种视觉效果</p>
